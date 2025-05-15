@@ -97,7 +97,8 @@ const Captcha = ({ onValidate }) => {
   };
 
   return (
-    <div className="max-w-md mx-auto p-6 border border-gray-300 rounded-xl shadow-lg bg-blue-800 space-y-4">
+  <div className="w-full max-w-md mx-auto bg-gray-900 text-white p-6 rounded-2xl shadow-xl space-y-4">
+
       <select
         className="border border-blue-300 p-2 rounded-lg w-full bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
         value={captchaType}

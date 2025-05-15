@@ -127,7 +127,7 @@ export default function SignupForm({ onClose }) {
     </div>
       {showCaptcha && (
         <div className="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-50">
-          <div className="bg-white rounded-xl p-6 max-w-sm w-full shadow-lg relative">
+          <div className="bg-gray-700 rounded-xl p-6 max-w-sm w-full shadow-lg relative">
             <button
               onClick={() => setShowCaptcha(false)}
               className="absolute top-2 right-3 text-gray-700 font-bold text-xl"
