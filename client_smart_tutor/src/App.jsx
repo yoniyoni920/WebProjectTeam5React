@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
-import SignupForm from './components/SignupForm';
 
+import Index from './components/Index/Index';
 import './App.css'
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
   return (
    
       <div>
-        <SignupForm />
+        <Index />
       </div>
       
     
