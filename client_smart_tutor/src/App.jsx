@@ -5,15 +5,12 @@ import Index from './components/Index/Index';
 import './App.css'
 
 function App() {
- 
-
   return (
-   
-      <div>
+    <div className="app-container">
+      <main className="main-content">
         <Index />
-      </div>
-      
-    
+      </main>
+    </div>
   )
 }
 

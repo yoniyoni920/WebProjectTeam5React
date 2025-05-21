@@ -25,6 +25,9 @@ const Header = ({ onLoginClick, onSignupClick, onNavigate }) => {
           <li>
             <button onClick={() => onNavigate('contact')} className="hover:text-blue-400 transition focus:outline-none">Contact</button>
           </li>
+           <li>
+          <button onClick={() => onNavigate('ai')} className="hover:text-blue-400 transition focus:outline-none">AI Tools</button>
+        </li>
         </ul>
       </nav>
 
