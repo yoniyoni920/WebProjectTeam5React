@@ -1,12 +1,5 @@
-<<<<<<< HEAD
-import React, { useState, useRef } from 'react';
-import { sendChatMessage } from '../../../api/openrouter';
-import { translateText } from '../../../api/translate';
-import { transcribeAudio } from '../../../api/whisper';
-=======
 import React, { useState } from 'react';
 import { sendChatMessage } from '../../../api/openrouter';
->>>>>>> e79d706fd20d6ae672e0e93686f75210ba2418ff
 import { textToSpeech } from '../../../api/tts';
 
 const AIDemo = () => {
@@ -15,20 +8,6 @@ const AIDemo = () => {
   const [chatResponse, setChatResponse] = useState('');
   const [chatLoading, setChatLoading] = useState(false);
 
-<<<<<<< HEAD
-  // Translate
-  const [translateInput, setTranslateInput] = useState('');
-  const [translateOutput, setTranslateOutput] = useState('');
-  const [translateLoading, setTranslateLoading] = useState(false);
-
-  // Speech-to-Text
-  const [audioText, setAudioText] = useState('');
-  const [recording, setRecording] = useState(false);
-  const mediaRecorderRef = useRef(null);
-  const audioChunksRef = useRef([]);
-
-=======
->>>>>>> e79d706fd20d6ae672e0e93686f75210ba2418ff
   // Text-to-Speech
   const [ttsInput, setTtsInput] = useState('');
   const [ttsAudioUrl, setTtsAudioUrl] = useState('');
@@ -46,46 +25,6 @@ const AIDemo = () => {
     setChatLoading(false);
   };
 
-<<<<<<< HEAD
-  // Translate handler
-  const handleTranslate = async () => {
-    setTranslateLoading(true);
-    try {
-      const res = await translateText(translateInput, 'en');
-      setTranslateOutput(res);
-    } catch (e) {
-      setTranslateOutput('Error: ' + e.message);
-    }
-    setTranslateLoading(false);
-  };
-
-  // Speech-to-Text handlers
-  const startRecording = async () => {
-    setAudioText('');
-    setRecording(true);
-    audioChunksRef.current = [];
-    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-    mediaRecorderRef.current = new window.MediaRecorder(stream);
-    mediaRecorderRef.current.ondataavailable = (e) => {
-      audioChunksRef.current.push(e.data);
-    };
-    mediaRecorderRef.current.onstop = async () => {
-      const audioBlob = new Blob(audioChunksRef.current, { type: 'audio/webm' });
-      const text = await transcribeAudio(audioBlob);
-      setAudioText(text);
-    };
-    mediaRecorderRef.current.start();
-  };
-
-  const stopRecording = () => {
-    setRecording(false);
-    if (mediaRecorderRef.current) {
-      mediaRecorderRef.current.stop();
-    }
-  };
-
-=======
->>>>>>> e79d706fd20d6ae672e0e93686f75210ba2418ff
   // Text-to-Speech handler
   const handleTTS = async () => {
     setTtsLoading(true);
@@ -102,15 +41,6 @@ const AIDemo = () => {
   };
 
   return (
-<<<<<<< HEAD
-    <section className="content-section">
-      <div className="section-inner">
-        <h2 className="section-title">AI Tools Demo</h2>
-        <div className="section-content" style={{gap: '2.5rem'}}>
-          {/* Chatbot */}
-          <div className="about-card">
-            <h3>Chatbot (OpenRouter)</h3>
-=======
     <section className="content-section w-full px-0">
       <div className="section-inner w-full px-0">
         <h2 className="section-title">AI Tools Demo</h2>
@@ -118,7 +48,6 @@ const AIDemo = () => {
           {/* Chatbot */}
           <div className="about-card w-full max-w-none text-2xl p-12 min-h-[200px] md:col-span-2" style={{minWidth:0}}>
             <h3>Chatbot</h3>
->>>>>>> e79d706fd20d6ae672e0e93686f75210ba2418ff
             <input
               type="text"
               value={chatInput}
@@ -132,40 +61,9 @@ const AIDemo = () => {
             <div style={{minHeight: 40}}>{chatResponse}</div>
           </div>
 
-<<<<<<< HEAD
-          {/* Translate */}
-          <div className="about-card">
-            <h3>Translate (LibreTranslate)</h3>
-            <input
-              type="text"
-              value={translateInput}
-              onChange={e => setTranslateInput(e.target.value)}
-              placeholder="הכנס טקסט לתרגום..."
-              style={{width: '100%', marginBottom: 8}}
-            />
-            <button onClick={handleTranslate} disabled={translateLoading} style={{marginBottom: 8}}>
-              {translateLoading ? 'מתרגם...' : 'תרגם לאנגלית'}
-            </button>
-            <div style={{minHeight: 40}}>{translateOutput}</div>
-          </div>
-
-          {/* Speech-to-Text */}
-          <div className="about-card">
-            <h3>Speech-to-Text (Whisper Web)</h3>
-            <button onClick={recording ? stopRecording : startRecording} style={{marginBottom: 8}}>
-              {recording ? 'עצור הקלטה' : 'התחל להקליט'}
-            </button>
-            <div style={{minHeight: 40}}>{audioText}</div>
-          </div>
-
-          {/* Text-to-Speech */}
-          <div className="about-card">
-            <h3>Text-to-Speech (ElevenLabs)</h3>
-=======
           {/* Text-to-Speech */}
           <div className="about-card w-full max-w-none text-2xl p-12 min-h-[200px] md:col-span-2" style={{minWidth:0}}>
             <h3>Text-to-Speech</h3>
->>>>>>> e79d706fd20d6ae672e0e93686f75210ba2418ff
             <input
               type="text"
               value={ttsInput}
@@ -174,11 +72,7 @@ const AIDemo = () => {
               style={{width: '100%', marginBottom: 8}}
             />
             <button onClick={handleTTS} disabled={ttsLoading} style={{marginBottom: 8}}>
-<<<<<<< HEAD
-              {ttsLoading ? 'יוצר אודיו...' : 'המר לטקסט לדיבור'}
-=======
               {ttsLoading ? 'Creating audio...' : 'Convert Text to Speech'}
->>>>>>> e79d706fd20d6ae672e0e93686f75210ba2418ff
             </button>
             {ttsAudioUrl && (
               <audio controls src={ttsAudioUrl} style={{width: '100%'}} />
