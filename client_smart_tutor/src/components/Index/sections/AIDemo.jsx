@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 import React, { useState, useRef } from 'react';
 import { sendChatMessage } from '../../../api/openrouter';
 import { translateText } from '../../../api/translate';
 import { transcribeAudio } from '../../../api/whisper';
+=======
+import React, { useState } from 'react';
+import { sendChatMessage } from '../../../api/openrouter';
+>>>>>>> e79d706fd20d6ae672e0e93686f75210ba2418ff
 import { textToSpeech } from '../../../api/tts';
 
 const AIDemo = () => {
@@ -10,6 +15,7 @@ const AIDemo = () => {
   const [chatResponse, setChatResponse] = useState('');
   const [chatLoading, setChatLoading] = useState(false);
 
+<<<<<<< HEAD
   // Translate
   const [translateInput, setTranslateInput] = useState('');
   const [translateOutput, setTranslateOutput] = useState('');
@@ -21,6 +27,8 @@ const AIDemo = () => {
   const mediaRecorderRef = useRef(null);
   const audioChunksRef = useRef([]);
 
+=======
+>>>>>>> e79d706fd20d6ae672e0e93686f75210ba2418ff
   // Text-to-Speech
   const [ttsInput, setTtsInput] = useState('');
   const [ttsAudioUrl, setTtsAudioUrl] = useState('');
@@ -38,6 +46,7 @@ const AIDemo = () => {
     setChatLoading(false);
   };
 
+<<<<<<< HEAD
   // Translate handler
   const handleTranslate = async () => {
     setTranslateLoading(true);
@@ -75,6 +84,8 @@ const AIDemo = () => {
     }
   };
 
+=======
+>>>>>>> e79d706fd20d6ae672e0e93686f75210ba2418ff
   // Text-to-Speech handler
   const handleTTS = async () => {
     setTtsLoading(true);
@@ -91,6 +102,7 @@ const AIDemo = () => {
   };
 
   return (
+<<<<<<< HEAD
     <section className="content-section">
       <div className="section-inner">
         <h2 className="section-title">AI Tools Demo</h2>
@@ -98,6 +110,15 @@ const AIDemo = () => {
           {/* Chatbot */}
           <div className="about-card">
             <h3>Chatbot (OpenRouter)</h3>
+=======
+    <section className="content-section w-full px-0">
+      <div className="section-inner w-full px-0">
+        <h2 className="section-title">AI Tools Demo</h2>
+        <div className="section-content grid grid-cols-1 md:grid-cols-2 gap-16 w-full px-0">
+          {/* Chatbot */}
+          <div className="about-card w-full max-w-none text-2xl p-12 min-h-[200px] md:col-span-2" style={{minWidth:0}}>
+            <h3>Chatbot</h3>
+>>>>>>> e79d706fd20d6ae672e0e93686f75210ba2418ff
             <input
               type="text"
               value={chatInput}
@@ -111,6 +132,7 @@ const AIDemo = () => {
             <div style={{minHeight: 40}}>{chatResponse}</div>
           </div>
 
+<<<<<<< HEAD
           {/* Translate */}
           <div className="about-card">
             <h3>Translate (LibreTranslate)</h3>
@@ -139,6 +161,11 @@ const AIDemo = () => {
           {/* Text-to-Speech */}
           <div className="about-card">
             <h3>Text-to-Speech (ElevenLabs)</h3>
+=======
+          {/* Text-to-Speech */}
+          <div className="about-card w-full max-w-none text-2xl p-12 min-h-[200px] md:col-span-2" style={{minWidth:0}}>
+            <h3>Text-to-Speech</h3>
+>>>>>>> e79d706fd20d6ae672e0e93686f75210ba2418ff
             <input
               type="text"
               value={ttsInput}
@@ -147,7 +174,11 @@ const AIDemo = () => {
               style={{width: '100%', marginBottom: 8}}
             />
             <button onClick={handleTTS} disabled={ttsLoading} style={{marginBottom: 8}}>
+<<<<<<< HEAD
               {ttsLoading ? 'יוצר אודיו...' : 'המר לטקסט לדיבור'}
+=======
+              {ttsLoading ? 'Creating audio...' : 'Convert Text to Speech'}
+>>>>>>> e79d706fd20d6ae672e0e93686f75210ba2418ff
             </button>
             {ttsAudioUrl && (
               <audio controls src={ttsAudioUrl} style={{width: '100%'}} />
