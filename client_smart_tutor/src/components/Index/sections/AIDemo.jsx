@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { sendChatMessage } from '../../../api/openrouter';
+import { sendChatMessage } from '../../../api/gemini';
 import { textToSpeech } from '../../../api/tts';
 import WordGuessGame from './WordGuessGame'; 
 const AIDemo = () => {

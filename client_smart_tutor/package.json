@@ -1,20 +1,20 @@
-
 {
   "homepage": "https://yoniyoni920.github.io/WebProjectTeam5React",
 
   "name": "client_smart_tutor",
   "private": true,
   "version": "0.0.0",
-  "type": "module","scripts": {
-  "predeploy": "npm run build",
-  "deploy": "gh-pages -d dist",   
-  "dev": "vite",
-  "build": "vite build",
-  "lint": "eslint .",
-  "preview": "vite preview"
-}
-,
+  "type": "module",
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",   
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
   "dependencies": {
+    "@google/generative-ai": "^0.2.0",
     "@tailwindcss/vite": "^4.1.6",
     "axios": "^1.9.0",
     "body-parser": "^2.2.0",
