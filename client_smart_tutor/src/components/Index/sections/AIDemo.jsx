@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { sendChatMessage } from '../../../api/openrouter';
 import { textToSpeech } from '../../../api/tts';
-
+import WordGuessGame from './WordGuessGame'; 
 const AIDemo = () => {
   // Chatbot
   const [chatInput, setChatInput] = useState('');
@@ -78,6 +78,7 @@ const AIDemo = () => {
               <audio controls src={ttsAudioUrl} style={{width: '100%'}} />
             )}
           </div>
+          <WordGuessGame/>
         </div>
       </div>
     </section>

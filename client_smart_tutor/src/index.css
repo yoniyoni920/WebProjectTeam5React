@@ -118,3 +118,99 @@
     /* background: theme('colors.primary.dark'); */
   }
 }
+
+.word-guess-game {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 24px;
+  background: #1f2937; /* אפור כהה */
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  color: #f9fafb; /* טקסט לבן-בהיר */
+}
+
+.word-guess-game h2 {
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-bottom: 16px;
+  color: #60a5fa;
+}
+
+.word-guess-game p.hint {
+  font-size: 1.1rem;
+  color: #d1d5db;
+  margin-bottom: 12px;
+}
+
+.word-guess-game input[type="text"] {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 1rem;
+  background: #374151;
+  border: 2px solid #4b5563;
+  border-radius: 10px;
+  color: #f3f4f6;
+  outline: none;
+}
+
+.word-guess-game input[type="text"]:focus {
+  border-color: #60a5fa;
+  box-shadow: 0 0 8px #3b82f6aa;
+}
+
+.word-guess-game .buttons {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.word-guess-game button {
+  cursor: pointer;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease;
+}
+
+.word-guess-game button.submit {
+  background-color: #10b981;
+  color: white;
+}
+
+.word-guess-game button.submit:hover {
+  background-color: #059669;
+}
+
+.word-guess-game button.next {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.word-guess-game button.next:hover {
+  background-color: #2563eb;
+}
+
+.word-guess-game .feedback {
+  font-size: 1.2rem;
+  margin-top: 12px;
+  min-height: 28px;
+  font-weight: 600;
+}
+
+.word-guess-game .score-round {
+  margin-top: 14px;
+  font-size: 0.9rem;
+  color: #9ca3af;
+}
+
+.word-guess-game button.give-up {
+  background-color: #ef4444;
+  color: white;
+}
+
+.word-guess-game button.give-up:hover {
+  background-color: #dc2626;
+}
