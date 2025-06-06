@@ -8,6 +8,8 @@ import Contact from './sections/Contact';
 import Footer from './Footer';
 import SignupForm from '../SignupForm';
 import AIDemo from './sections/AIDemo';
+import LoggedInUsers from './sections/LoggedInUsers';
+
 function Index() {
   const [showLogin, setShowLogin] = useState(false);
   const [showSignupForm, setShowSignupForm] = useState(false);
@@ -53,6 +55,7 @@ function Index() {
           {activeSection === 'services' && <Services />}
           {activeSection === 'contact' && <Contact />}
           {activeSection === 'ai' && <AIDemo />}
+          {activeSection === 'LoggedInUsers' && <LoggedInUsers />}
         </main>
       )}
 
