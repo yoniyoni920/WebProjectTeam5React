@@ -214,3 +214,15 @@
 .word-guess-game button.give-up:hover {
   background-color: #dc2626;
 }
+
+
+/* מצב ניגודיות גבוהה */
+.high-contrast {
+  background-color: black !important;
+  color: white !important;
+}
+
+.high-contrast button {
+  background-color: white !important;
+  color: black !important;
+}
