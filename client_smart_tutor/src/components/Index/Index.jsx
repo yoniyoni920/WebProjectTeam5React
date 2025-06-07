@@ -9,11 +9,14 @@ import Footer from './Footer';
 import SignupForm from '../SignupForm';
 import AIDemo from './sections/AIDemo';
 import LoggedInUsers from './sections/LoggedInUsers';
+import AdminMessages from './sections/AdminMessages';
+
 
 function Index() {
   const [showLogin, setShowLogin] = useState(false);
   const [showSignupForm, setShowSignupForm] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser") || "null");
 
   const openLoginModel = () => {
     setShowLogin(true);
@@ -54,6 +57,7 @@ function Index() {
           {activeSection === 'about' && <About />}
           {activeSection === 'services' && <Services />}
           {activeSection === 'contact' && <Contact />}
+          {activeSection === 'admin-contact' && <AdminMessages user={loggedInUser} />}
           {activeSection === 'ai' && <AIDemo />}
           {activeSection === 'LoggedInUsers' && <LoggedInUsers />}
         </main>

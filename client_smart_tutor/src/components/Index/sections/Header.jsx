@@ -41,8 +41,21 @@ const Header = ({ onLoginClick, onSignupClick, onNavigate }) => {
             <button onClick={() => onNavigate('services')} className="hover:text-blue-400 transition focus:outline-none">Services</button>
           </li>
           <li>
-            <button onClick={() => onNavigate('contact')} className="hover:text-blue-400 transition focus:outline-none">Contact</button>
+            <button
+              onClick={() => {
+                const user = JSON.parse(localStorage.getItem("loggedInUser"));
+                if (user?.role === "Admin") {
+                  onNavigate("admin-contact");
+                } else {
+                  onNavigate("contact");
+                }
+              }}
+              className="hover:text-blue-400 transition focus:outline-none"
+            >
+              Contact
+            </button>
           </li>
+
            <li>
           <button onClick={() => onNavigate('ai')} className="hover:text-blue-400 transition focus:outline-none">AI Tools</button>
         </li>
@@ -56,7 +69,6 @@ const Header = ({ onLoginClick, onSignupClick, onNavigate }) => {
             <span className="bg-gray-700 hover:bg-gray-700 text-white font-semibold px-4 py-2 rounded transition">
               Welcome, {loggedInUser.username}
             </span>
-              {/* Show only if user is admin */}
               {loggedInUser.role === 'Admin' && (
                 <button
                   onClick={() => onNavigate('LoggedInUsers')}

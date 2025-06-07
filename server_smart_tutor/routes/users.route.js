@@ -143,6 +143,97 @@ usersRouter.get("/loggedinusers", async (req, res) => {
   
   
 });
+usersRouter.post("/contact", async (req, res) => {
+  try {
+    const { name, email, message } = req.body;
+
+    if (!name || !email || !message) {
+      return res.status(400).send({ error: "All fields are required." });
+    }
+
+    // Save to Firebase under 'contacts'
+    const contactRef = db.ref('contacts').push();
+    await contactRef.set({
+      name,
+      email,
+      message,
+      submittedAt: new Date().toISOString()
+    });
+
+    res.status(200).send({ success: true, message: "Message received." });
+  } catch (error) {
+    console.error("Contact error:", error);
+    res.status(500).send({ error: error.message });
+  }
+});
+
+usersRouter.post('/save-score', async (req, res) => {
+  const { username, score, correctAnswers, attempts, timestamp } = req.body;
+
+  if (!username) {
+    return res.status(400).json({ message: "Username is required" });
+  }
+
+  try {
+    const userScoresRef = db.ref(`user-scores/${username}`);
+    await userScoresRef.push({
+      score,
+      correctAnswers,
+      attempts,
+      timestamp
+    });
+
+    res.json({ message: "Score saved" });
+  } catch (e) {
+    res.status(500).json({ message: "Error saving score", error: e.message });
+  }
+});
+// In users.route.js
+usersRouter.get("/get-scores/:username", async (req, res) => {
+  const { username } = req.params;
+
+  try {
+    const snapshot = await db.ref(`user-scores/${username}`).once("value");
+    const scores = snapshot.val() || {};
+    const scoreList = Object.values(scores);
+
+    res.status(200).json(scoreList);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+// DELETE: Remove all scores for a user
+usersRouter.delete("/delete-scores/:username", async (req, res) => {
+  const { username } = req.params;
+
+  try {
+    await db.ref(`user-scores/${username}`).remove();
+    res.status(200).json({ message: "All scores deleted" });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+usersRouter.get("/contact", async (req, res) => {
+  try {
+    const contactsRef = db.ref("contacts");
+    const snapshot = await contactsRef.once("value");
+    const contactsData = snapshot.val();
+
+    if (!contactsData) {
+      return res.status(200).send([]);
+    }
+
+    const messages = Object.entries(contactsData).map(([id, msg]) => ({
+      _id: id,
+      ...msg,
+    }));
+
+    res.status(200).send(messages);
+  } catch (error) {
+    console.error("Failed to retrieve contacts:", error);
+    res.status(500).send({ error: "Failed to fetch contact messages." });
+  }
+});
 
 
 module.exports = usersRouter;
