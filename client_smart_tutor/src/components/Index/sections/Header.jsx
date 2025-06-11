@@ -27,7 +27,7 @@ const Header = ({ onLoginClick, onSignupClick, onNavigate }) => {
 
   return (
     <header className="fixed top-0 left-0 right-0 bg-gray-800 text-white px-8 py-4 shadow-md z-50 flex flex-col md:flex-row items-center justify-between">
-      <div className="text-2xl font-bold mb-4 md:mb-0">Smart Tutor</div>
+      <div className="text-2xl font-bold mb-4 md:mb-0">TALKWISE</div>
 
       <nav className="mb-4 md:mb-0">
         <ul className="flex space-x-6">
@@ -39,6 +39,9 @@ const Header = ({ onLoginClick, onSignupClick, onNavigate }) => {
           </li>
           <li>
             <button onClick={() => onNavigate('services')} className="hover:text-blue-400 transition focus:outline-none">Services</button>
+          </li>
+          <li>
+            <button onClick={() => onNavigate('articles')} className="hover:text-blue-400 transition focus:outline-none">Articles</button>
           </li>
           <li>
             <button
@@ -62,7 +65,7 @@ const Header = ({ onLoginClick, onSignupClick, onNavigate }) => {
         </ul>
       </nav>
 
-      <div className="flex space-x-4">
+      <div className="flex space-x-8">
         
         {loggedInUser ? (
           <>
@@ -89,8 +92,8 @@ const Header = ({ onLoginClick, onSignupClick, onNavigate }) => {
 
           ) : (
           <>
-            <button onClick={onLoginClick} className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded transition">Log In</button>
-            <button onClick={onSignupClick} className="bg-gray-700 hover:bg-gray-600 text-white font-semibold px-4 py-2 rounded">Sign Up</button>
+            <button onClick={onLoginClick} className="bg-purple-800 text-white px-4 py-2 rounded-md" style={{ marginRight: '1rem' }}>Log In</button>
+            <button onClick={onSignupClick} className="bg-purple-800 text-white px-4 py-2 rounded-md">Sign Up</button>
           </>
         )}
       </div>

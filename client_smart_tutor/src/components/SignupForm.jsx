@@ -61,7 +61,7 @@ export default function SignupForm({ onClose }) {
 
   return (
     <>
-      <div className="bg-gray-900 p-6 rounded-lg shadow-lg max-w-md w-full mx-auto text-white">
+      <div className="max-w-md w-full mx-auto text-white">
         <form onSubmit={handleSubmit} className="bg-gray-800 rounded-lg shadow-lg w-80 p-6 relative space-y-4">
           <h2 className="text-2xl font-semibold text-white text-center">Sign Up</h2>
 
@@ -88,6 +88,7 @@ export default function SignupForm({ onClose }) {
           </div>
         </div>
       )}
+      
     </>
   );
 }

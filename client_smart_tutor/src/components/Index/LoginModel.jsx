@@ -41,9 +41,9 @@ const LoginModel = ({ onClose }) => {
   };
 
   return (
-    <div className="bg-gray-900 p-6 rounded-lg shadow-lg max-w-md w-full text-white">
-      <div className="bg-gray-800 rounded-lg shadow-lg w-80 p-6 relative">
-        <h2 className="text-white text-2xl mb-6 text-center font-semibold">Log In</h2>
+    <div className="max-w-md w-full mx-auto">
+      <div className="bg-gray-800 rounded-lg shadow-lg w-80 p-6 relative text-white">
+        <h2 className="text-2xl mb-6 text-center font-semibold">Log In</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label htmlFor="loginUsername" className="block mb-1 text-gray-300 font-medium">
