@@ -9,8 +9,8 @@ const LoggedInUsers = () => {
   }, []);
 
   const fetchLoggedInUsers = async () => {
-    try {
-      const response = await fetch("http://localhost:3000/loggedinusers");
+    try {  
+      const response = await fetch('/api/loggedinusers');
       if (response.ok) {
         const data = await response.json();
         setUsers(data);

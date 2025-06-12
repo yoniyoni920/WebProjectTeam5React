@@ -56,7 +56,7 @@ const wordBank = [
 // Helper to send score to backend
 const saveScoreToServer = async ({ username, score, correctAnswers, attempts }) => {
   try {
-    const res = await fetch('http://localhost:3000/save-score', {
+    const res = await fetch('/api/save-score', {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

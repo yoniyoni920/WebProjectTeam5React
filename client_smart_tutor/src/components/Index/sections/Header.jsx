@@ -8,7 +8,8 @@ const Header = ({ onLoginClick, onSignupClick, onNavigate }) => {
 
   if (username) {
     try {
-      await fetch("http://localhost:3000/logout", {
+           
+      await fetch('/api/logout', {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

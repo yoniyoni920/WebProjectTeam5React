@@ -17,7 +17,7 @@ const LoginModel = ({ onClose }) => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:3000/login', {
+      const response = await fetch('/api/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -26,16 +26,16 @@ const LoginModel = ({ onClose }) => {
       const data = await response.json();
 
       if (response.ok && data.success) {
-            alert('Login successful!');
-            localStorage.setItem("loggedInUser", JSON.stringify(data.user));
-            window.location.href = "index.html";
-          } else {
-            alert(data.error || 'Invalid login');
-          }
-      } catch (error) {
-        console.error('Login error:', error);
-        alert('An error occurred. Please try again.');
+        alert('Login successful!');
+        localStorage.setItem("loggedInUser", JSON.stringify(data.user));
+        window.location.href = "index.html"; // ✅ Optional: Replace with React routing if SPA
+      } else {
+        alert(data.error || 'Invalid login');
       }
+    } catch (error) {
+      console.error('Login error:', error);
+      alert('An error occurred. Please try again.');
+    }
 
     onClose();
   };

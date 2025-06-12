@@ -9,48 +9,52 @@ export default function ScoreHistory({ username }) {
     fetchScores();
   }, [username]);
 
-  const fetchScores = async () => {
-    if (!username) return;
+const fetchScores = async () => {
+  if (!username) return;
 
-    setLoading(true);
-    try {
-      const res = await fetch(`http://localhost:3000/get-scores/${username}`);
-      const data = await res.json();
+  setLoading(true);
+  try {
+    const res = await fetch(`/api/get-scores?username=${encodeURIComponent(username)}`);
+    const data = await res.json();
 
-      // Sort by most recent
-      const sorted = data.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
-      setScores(sorted);
+    const sorted = Array.isArray(data)
+      ? data.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))
+      : [];
 
-      // Stats calculation
-      if (sorted.length > 0) {
-        const totalGames = sorted.length;
-        const bestScore = Math.max(...sorted.map(s => s.score));
-        const avgScore = (sorted.reduce((sum, s) => sum + s.score, 0) / totalGames).toFixed(2);
-        setStats({ totalGames, bestScore, avgScore });
-      } else {
-        setStats(null);
-      }
-    } catch (error) {
-      console.error("Failed to fetch scores:", error);
-    }
-    setLoading(false);
-  };
+    setScores(sorted);
 
-  const handleDelete = async () => {
-    if (!window.confirm("Are you sure you want to delete all score history?")) return;
-
-    try {
-      const res = await fetch(`http://localhost:3000/delete-scores/${username}`, {
-        method: "DELETE"
-      });
-      const result = await res.json();
-      console.log("Deleted:", result.message);
-      setScores([]);
+    if (sorted.length > 0) {
+      const totalGames = sorted.length;
+      const bestScore = Math.max(...sorted.map(s => s.score));
+      const avgScore = (sorted.reduce((sum, s) => sum + s.score, 0) / totalGames).toFixed(2);
+      setStats({ totalGames, bestScore, avgScore });
+    } else {
       setStats(null);
-    } catch (error) {
-      console.error("Failed to delete scores:", error);
     }
-  };
+  } catch (error) {
+    console.error("Failed to fetch scores:", error);
+  }
+  setLoading(false);
+};
+
+
+const handleDelete = async () => {
+  if (!window.confirm("Are you sure you want to delete all score history?")) return;
+
+  try {
+    const res = await fetch(`/api/delete-scores?username=${encodeURIComponent(username)}`, {
+      method: "DELETE"
+    });
+
+    const result = await res.json();
+    console.log("Deleted:", result.message);
+    setScores([]);
+    setStats(null);
+  } catch (error) {
+    console.error("Failed to delete scores:", error);
+  }
+};
+
 
   if (!username) {
     return <p>Please log in to view your score history.</p>;

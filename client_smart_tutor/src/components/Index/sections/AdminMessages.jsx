@@ -9,7 +9,7 @@ const AdminMessages = ({ user }) => {
       if (user?.role !== 'Admin') return; 
 
       try {
-        const res = await fetch('http://localhost:3000/contact'); 
+        const res = await fetch('/api/contact'); 
         if (!res.ok) {
           throw new Error('Failed to fetch messages');
         }
