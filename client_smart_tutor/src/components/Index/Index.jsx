@@ -10,6 +10,7 @@ import SignupForm from '../SignupForm';
 import AIDemo from './sections/AIDemo';
 import LoggedInUsers from './sections/LoggedInUsers';
 import AdminMessages from './sections/AdminMessages';
+import Articles from './sections/Articles';
 
 
 function Index() {
@@ -52,7 +53,7 @@ function Index() {
 
 
       {!showLogin && !showSignupForm && (
-        <main className="pt-16 max-w-5xl mx-auto p-6 bg-gray-900 rounded-lg mt-6 space-y-12 min-h-[70vh]">
+        <main className="pt-16 max-w-5xl mx-auto p-6 mt-6 space-y-12 min-h-[70vh]">
           {activeSection === 'home' && <Home onNavigate={handleNavigate} />}
           {activeSection === 'about' && <About />}
           {activeSection === 'services' && <Services />}
@@ -60,6 +61,7 @@ function Index() {
           {activeSection === 'admin-contact' && <AdminMessages user={loggedInUser} />}
           {activeSection === 'ai' && <AIDemo />}
           {activeSection === 'LoggedInUsers' && <LoggedInUsers />}
+          {activeSection === 'articles' && <Articles />}
         </main>
       )}
 
