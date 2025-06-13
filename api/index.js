@@ -52,3 +52,12 @@ if (process.env.NODE_ENV !== 'production') {
     console.log(`Local Express server running at http://localhost:${PORT}/api`);
   });
 }
+router.get('/test-firebase', async (req, res) => {
+  try {
+    const snapshot = await db.ref("users").once("value");
+    res.status(200).json(snapshot.val());
+  } catch (err) {
+    console.error("Firebase test error:", err);
+    res.status(500).json({ error: "Failed to fetch users" });
+  }
+});
