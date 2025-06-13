@@ -27,11 +27,12 @@ const Header = ({ onLoginClick, onSignupClick, onNavigate }) => {
 
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-gray-800 text-white px-8 py-4 shadow-md z-50 flex flex-col md:flex-row items-center justify-between">
+  <header className="fixed top-0 left-0 right-0 bg-gray-800 text-white px-4 py-3 shadow-md z-50 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
       <div className="text-2xl font-bold mb-4 md:mb-0">TALKWISE</div>
 
       <nav className="mb-4 md:mb-0">
-        <ul className="flex space-x-6">
+        <ul className="grid grid-cols-3 gap-3 md:flex md:space-x-6">
+
           <li>
             <button onClick={() => onNavigate('home')} className="hover:text-blue-400 transition focus:outline-none">Home</button>
           </li>
@@ -70,6 +71,7 @@ const Header = ({ onLoginClick, onSignupClick, onNavigate }) => {
         
         {loggedInUser ? (
           <>
+          
             <span className="bg-gray-700 hover:bg-gray-700 text-white font-semibold px-4 py-2 rounded transition">
               Welcome, {loggedInUser.username}
             </span>

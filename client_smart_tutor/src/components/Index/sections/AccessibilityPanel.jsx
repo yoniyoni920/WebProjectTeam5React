@@ -26,26 +26,25 @@ const AccessibilityPanel = () => {
 
   return (
     <>
-      <button style={toggleButtonStyle} onClick={togglePanel}>מצב נגישות</button>
-      {isOpen && (
-        <div style={panelStyle}>
-          <h3 style={titleStyle}>תפריט נגישות</h3>
-          <button style={buttonStyle} onClick={increaseFontSize}>הגדל טקסט</button>
-          <button style={buttonStyle} onClick={decreaseFontSize}>הקטן טקסט</button>
-          <button style={buttonStyle} onClick={toggleContrast}>
-            שינוי ניגודיות
-          </button>
-        </div>
+      <button className="accessibility-toggle" onClick={togglePanel}>מצב נגישות</button>
+
+{isOpen && (
+  <div className="accessibility-panel">
+    <h3 className="accessibility-title">תפריט נגישות</h3>
+    <button className="accessibility-button" onClick={increaseFontSize}>הגדל טקסט</button>
+    <button className="accessibility-button" onClick={decreaseFontSize}>הקטן טקסט</button>
+    <button className="accessibility-button" onClick={toggleContrast}>שינוי ניגודיות</button>
+  </div>
       )}
     </>
   );
 };
-
+/*
 // עיצוב כפתור הראשי
 const toggleButtonStyle = {
   position: 'fixed',
-  top: '85px',
-  right: '30px',
+  top: '105px',
+  right: '10px',
   backgroundColor: '#333',
   color: '#fff',
   border: 'none',
@@ -89,5 +88,6 @@ const titleStyle = {
   fontSize: '16px',
   textAlign: 'center',
 };
+*/
 
 export default AccessibilityPanel;

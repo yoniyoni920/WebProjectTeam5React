@@ -53,7 +53,8 @@ function Index() {
 
 
       {!showLogin && !showSignupForm && (
-        <main className="pt-16 max-w-5xl mx-auto p-6 mt-6 space-y-12 min-h-[70vh]">
+        <main className="pt-[125px] sm:pt-[100px] md:pt-[10px] lg:pt-10">
+
           {activeSection === 'home' && <Home onNavigate={handleNavigate} />}
           {activeSection === 'about' && <About />}
           {activeSection === 'services' && <Services />}
