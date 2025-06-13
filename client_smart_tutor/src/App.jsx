@@ -8,6 +8,7 @@ function App() {
   return (
     <div className="app-container">
       <AccessibilityPanel />
+      
       <main className="main-content">
         <Index />
       </main>

@@ -11,39 +11,49 @@ import AIDemo from './sections/AIDemo';
 import LoggedInUsers from './sections/LoggedInUsers';
 import AdminMessages from './sections/AdminMessages';
 import Articles from './sections/Articles';
-
+import UpdateUserForm from './sections/UpdateUserForm'; 
 
 function Index() {
   const [showLogin, setShowLogin] = useState(false);
   const [showSignupForm, setShowSignupForm] = useState(false);
+  const [showUpdateForm, setShowUpdateForm] = useState(false); 
   const [activeSection, setActiveSection] = useState('home');
   const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser") || "null");
 
   const openLoginModel = () => {
     setShowLogin(true);
-    setShowSignupForm(false);  
+    setShowSignupForm(false);
+    setShowUpdateForm(false);
   };
 
   const closeLoginModel = () => setShowLogin(false);
 
   const openSignupFormModel = () => {
     setShowSignupForm(true);
-    setShowLogin(false); 
+    setShowLogin(false);
+    setShowUpdateForm(false);
   };
 
   const closeSignupFormModel = () => setShowSignupForm(false);
 
   const handleNavigate = (section) => {
     setActiveSection(section);
-    setShowLogin(false);     
+    setShowLogin(false);
+    setShowSignupForm(false);
+    setShowUpdateForm(false);
+  };
+
+  const toggleUpdateForm = () => {
+    setShowUpdateForm(prev => !prev);
+    setShowLogin(false);
     setShowSignupForm(false);
   };
 
   return (
     <>
-    
       {showLogin && <LoginModel onClose={closeLoginModel} />}
       {showSignupForm && <SignupForm onClose={closeSignupFormModel} />}
+      {showUpdateForm && <UpdateUserForm />} 
 
       <Header
         onLoginClick={openLoginModel}
@@ -51,8 +61,19 @@ function Index() {
         onNavigate={handleNavigate}
       />
 
+      
+      {loggedInUser && !showLogin && !showSignupForm && (
+        <div className="fixed bottom-6 right-6 z-50">
+          <button
+            onClick={toggleUpdateForm}
+            className="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded"
+          >
+            {showUpdateForm ? 'Close Update Form' : 'Update My Info'}
+          </button>
+        </div>
+      )}
 
-      {!showLogin && !showSignupForm && (
+      {!showLogin && !showSignupForm && !showUpdateForm && (
         <main className="pt-[125px] sm:pt-[100px] md:pt-[10px] lg:pt-10">
 
           {activeSection === 'home' && <Home onNavigate={handleNavigate} />}
