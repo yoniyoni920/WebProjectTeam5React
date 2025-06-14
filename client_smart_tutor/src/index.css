@@ -226,3 +226,14 @@
   background-color: white !important;
   color: black !important;
 }
+/* ביטול מוחלט של רקע/גבול/ריפוד/הצללה לכפתורים פשוטים */
+header button {
+  all: unset;
+  cursor: pointer;
+  color: white;
+  font: inherit;
+}
+
+header button:hover {
+  color: #60a5fa; /* Tailwind's blue-400 */
+}
