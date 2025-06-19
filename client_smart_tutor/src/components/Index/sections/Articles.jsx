@@ -29,28 +29,26 @@ const Articles = () => {
   ];
 
   return (
-    <div className="content-section">
-      <h2 className="section-title text-2xl font-semibold mb-6">Articles</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {articles.map((article) => (
-          <a
-            key={article.id}
-            href={article.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-gray-800 rounded-lg p-6 hover:transform hover:scale-105 transition-all duration-300 block shadow-lg"
-          >
-            <div className="text-sm text-purple-400 mb-2">{article.category} • {article.level}</div>
-            <h3 className="text-xl font-bold text-white mb-2">{article.title}</h3>
-            <p className="text-gray-300 mb-4">{article.description}</p>
-            <div className="flex justify-between items-center text-sm text-gray-400">
-              <span>{article.author}</span>
-              <span>{article.date}</span>
-            </div>
-          </a>
-        ))}
+    <section className="w-full bg-gradient-to-br from-[#EAEFEF] via-[#B8CFCE]/30 to-[#B8CFCE]/50 py-20">
+      <div className="max-w-7xl mx-auto px-8">
+        <h2 className="text-5xl font-extrabold mb-14 text-[#333446] text-center">Articles</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14">
+          {articles.map((article) => (
+            <a
+              key={article.id}
+              href={article.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group bg-gradient-to-br from-[#7F8CAA] to-white border border-[#7F8CAA] rounded-3xl p-12 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 block shadow-xl"
+            >
+              <div className="text-lg text-[#7F8CAA] mb-4 font-bold">{article.category} • {article.level}</div>
+              <h3 className="text-3xl font-extrabold mb-4 text-[#333446] group-hover:underline">{article.title}</h3>
+              <p className="text-[#7F8CAA] mb-6 text-xl leading-relaxed">{article.description}</p>
+            </a>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

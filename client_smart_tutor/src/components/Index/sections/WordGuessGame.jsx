@@ -179,25 +179,45 @@ export default function WordGuessGame({ username }) {
       <h2>🎯 Word Guess Game</h2>
       {canPlayMore ? (
         <>
-          <p className="hint"><strong>Question:</strong> {currentWord.question}</p>
+          <p className="hint" style={{ color: '#333446', background: '#EAEFEF', borderRadius: 12, padding: '16px 32px', display: 'block', fontSize: '1.5rem', fontWeight: 700, marginBottom: 24, textAlign: 'center', marginLeft: 'auto', marginRight: 'auto', boxShadow: '0 2px 8px rgba(127,140,170,0.10)' }}>
+            <span style={{ color: '#7F8CAA', fontWeight: 800 }}>Question:</span> {currentWord.question}
+          </p>
           <input
             type="text"
             value={guess}
             onChange={(e) => setGuess(e.target.value)}
             placeholder="Type your guess..."
             disabled={isAnswered}
-            style={{ padding: '8px', width: '100%', marginBottom: '10px' }}
+            style={{ padding: '16px', width: '100%', marginBottom: '20px', color: '#333446', background: '#fff', border: '2px solid #7F8CAA', borderRadius: 12, fontSize: '1.3rem', fontWeight: 600 }}
           />
-          <div className="buttons" style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
-            <button onClick={handleSubmit} disabled={isAnswered || attemptsLeft === 0}>Submit</button>
-            <button onClick={() => loadNewWord(true)} disabled={!isAnswered}>Next</button>
-            <button onClick={handleGiveUp} disabled={isAnswered}>I Give Up</button>
+          <div className="buttons" style={{ display: 'flex', gap: '18px', justifyContent: 'center', marginBottom: 18 }}>
+            <button style={{ color: '#333446', background: '#B8CFCE', border: '2px solid #7F8CAA', borderRadius: 12, padding: '14px 36px', fontWeight: 800, fontSize: '1.3rem', transition: 'all 0.2s' }} onClick={handleSubmit} disabled={isAnswered || attemptsLeft === 0}>Submit</button>
+            <button style={{ color: '#333446', background: '#B8CFCE', border: '2px solid #7F8CAA', borderRadius: 12, padding: '14px 36px', fontWeight: 800, fontSize: '1.3rem', transition: 'all 0.2s' }} onClick={() => loadNewWord(true)} disabled={!isAnswered}>Next</button>
+            <button style={{ color: '#333446', background: '#B8CFCE', border: '2px solid #7F8CAA', borderRadius: 12, padding: '14px 36px', fontWeight: 800, fontSize: '1.3rem', transition: 'all 0.2s' }} onClick={handleGiveUp} disabled={isAnswered}>I Give Up</button>
           </div>
-          <p className="feedback" style={{ marginTop: '10px' }}>{feedback}</p>
-          <p className="score-round">Score: {score} | Round: {round} / {maxRounds}</p>
+          {feedback && (
+            <p className="feedback" style={{ color: '#333446', background: '#EAEFEF', borderRadius: 12, padding: '16px 32px', display: 'block', marginTop: 18, fontWeight: 700, fontSize: '1.3rem', textAlign: 'center', marginLeft: 'auto', marginRight: 'auto', boxShadow: '0 2px 8px rgba(127,140,170,0.10)' }}>{feedback}</p>
+          )}
+          <p className="score-round" style={{
+            color: '#333446',
+            background: '#EAEFEF',
+            borderRadius: 12,
+            padding: '16px 32px',
+            fontWeight: 700,
+            marginTop: 18,
+            marginBottom: 0,
+            fontSize: '1.5rem',
+            textAlign: 'center',
+            width: 'fit-content',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            boxShadow: '0 2px 8px rgba(127,140,170,0.10)'
+          }}>
+            Score: {score} | Round: {round} / {maxRounds}
+          </p>
         </>
       ) : (
-        <p style={{ fontSize: '1.2rem', fontWeight: 'bold', marginTop: '20px' }}>
+        <p style={{ fontSize: '2rem', fontWeight: 'bold', marginTop: '32px', color: '#333446', background: '#EAEFEF', borderRadius: 12, padding: '18px 36px', display: 'block', textAlign: 'center', marginLeft: 'auto', marginRight: 'auto', boxShadow: '0 2px 8px rgba(127,140,170,0.10)' }}>
           🎉 Game Over! Final score: {score} / {maxRounds}
         </p>
       )}

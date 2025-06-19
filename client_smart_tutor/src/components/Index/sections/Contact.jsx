@@ -37,11 +37,11 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-12 bg-gray-800 rounded-lg shadow-md px-6 max-w-lg mx-auto">
-      <h2 className="text-3xl font-semibold mb-6 text-white">Contact Us</h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
+    <section id="contact" className="py-14 bg-gradient-to-br from-[#EAEFEF] via-[#B8CFCE]/30 to-[#B8CFCE]/50 rounded-3xl shadow-xl px-8 max-w-xl mx-auto border border-[#7F8CAA] my-12">
+      <h2 className="text-3xl font-bold mb-8 text-[#333446] text-center">Contact Us</h2>
+      <form onSubmit={handleSubmit} className="space-y-6">
         <div>
-          <label htmlFor="name" className="block font-medium mb-1 text-gray-300">Name:</label>
+          <label htmlFor="name" className="block font-semibold mb-2 text-[#7F8CAA] text-lg">Name:</label>
           <input
             type="text"
             id="name"
@@ -49,12 +49,11 @@ const Contact = () => {
             required
             value={formData.name}
             onChange={handleChange}
-            className="w-full border border-gray-600 rounded px-3 py-2 bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full border border-[#7F8CAA] rounded-lg px-4 py-3 bg-white text-[#333446] focus:outline-none focus:ring-2 focus:ring-[#7F8CAA] text-lg"
           />
         </div>
-
         <div>
-          <label htmlFor="email" className="block font-medium mb-1 text-gray-300">Email:</label>
+          <label htmlFor="email" className="block font-semibold mb-2 text-[#7F8CAA] text-lg">Email:</label>
           <input
             type="email"
             id="email"
@@ -62,30 +61,27 @@ const Contact = () => {
             required
             value={formData.email}
             onChange={handleChange}
-            className="w-full border border-gray-600 rounded px-3 py-2 bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full border border-[#7F8CAA] rounded-lg px-4 py-3 bg-white text-[#333446] focus:outline-none focus:ring-2 focus:ring-[#7F8CAA] text-lg"
           />
         </div>
-
         <div>
-          <label htmlFor="message" className="block font-medium mb-1 text-gray-300">Message:</label>
+          <label htmlFor="message" className="block font-semibold mb-2 text-[#7F8CAA] text-lg">Message:</label>
           <textarea
             id="message"
             name="message"
             required
             value={formData.message}
             onChange={handleChange}
-            className="w-full border border-gray-600 rounded px-3 py-2 h-32 resize-none bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full border border-[#7F8CAA] rounded-lg px-4 py-3 h-32 resize-none bg-white text-[#333446] focus:outline-none focus:ring-2 focus:ring-[#7F8CAA] text-lg"
           />
         </div>
-
         <button
           type="submit"
-          className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded"
+          className="bg-[#7F8CAA] hover:bg-[#6a7899] text-white font-bold px-8 py-3 rounded-xl text-lg shadow-md transition-all duration-200 w-full"
         >
           Send
         </button>
-
-        {status && <p className="text-sm text-white mt-2">{status}</p>}
+        {status && <p className="text-base text-[#7F8CAA] mt-2 text-center">{status}</p>}
       </form>
     </section>
   );

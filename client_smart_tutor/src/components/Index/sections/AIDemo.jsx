@@ -52,112 +52,85 @@ const AIDemo = () => {
   };
 
   return (
-    <section className="content-section w-full px-0">
-      <div className="section-inner w-full px-0">
-        <h2 className="section-title">AI Tutor</h2>
-
+    <section className="w-full bg-gradient-to-br from-[#EAEFEF] via-[#B8CFCE]/30 to-[#B8CFCE]/50 py-16">
+      <div className="max-w-7xl mx-auto px-6">
+        <h2 className="text-4xl font-bold mb-10 text-[#333446] text-center">AI Tools</h2>
         {/* Tool selector */}
-        <div className="tool-selector mb-8" style={{ display: 'flex', justifyContent: 'center', gap: 12 }}>
+        <div className="tool-selector mb-10 flex justify-center gap-6">
           <button
             onClick={() => setActiveTool('chatbot')}
-            className={activeTool === 'chatbot' ? 'active' : ''}
+            className={`px-6 py-3 rounded-xl font-bold text-lg shadow-md border border-[#7F8CAA] transition-all duration-200 ${activeTool === 'chatbot' ? 'bg-[#7F8CAA] text-white' : 'bg-white text-[#7F8CAA] hover:bg-[#eaf0f0]'}`}
           >
             Chatbot
           </button>
           <button
             onClick={() => setActiveTool('tts')}
-            className={activeTool === 'tts' ? 'active' : ''}
+            className={`px-6 py-3 rounded-xl font-bold text-lg shadow-md border border-[#7F8CAA] transition-all duration-200 ${activeTool === 'tts' ? 'bg-[#7F8CAA] text-white' : 'bg-white text-[#7F8CAA] hover:bg-[#eaf0f0]'}`}
           >
             Text-to-Speech
           </button>
           <button
             onClick={() => setActiveTool('wordgame')}
-            className={activeTool === 'wordgame' ? 'active' : ''}
+            className={`px-6 py-3 rounded-xl font-bold text-lg shadow-md border border-[#7F8CAA] transition-all duration-200 ${activeTool === 'wordgame' ? 'bg-[#7F8CAA] text-white' : 'bg-white text-[#7F8CAA] hover:bg-[#eaf0f0]'}`}
           >
             Word Guess Game
           </button>
         </div>
-
         {/* Tool content */}
-        <div className="section-content grid grid-cols-1 md:grid-cols-2 gap-16 w-full px-0">
-
+        <div className="grid grid-cols-1 gap-12">
           {activeTool === 'chatbot' && (
-            <div className="about-card w-full max-w-none text-2xl p-12 min-h-[200px] md:col-span-2" style={{ minWidth: 0 }}>
-              <h3>Chatbot</h3>
+            <div className="about-card w-full max-w-none text-2xl p-12 min-h-[200px] bg-gradient-to-br from-[#7F8CAA] to-white border border-[#7F8CAA] rounded-3xl shadow-xl">
+              <h3 className="text-2xl font-bold mb-6 text-[#333446]">Chatbot</h3>
               <input
                 type="text"
                 value={chatInput}
                 onChange={e => setChatInput(e.target.value)}
                 placeholder="Ask anything..."
-                style={{ width: '100%', marginBottom: 8 }}
+                className="w-full border border-[#7F8CAA] rounded-lg px-4 py-3 bg-white text-[#333446] focus:outline-none focus:ring-2 focus:ring-[#7F8CAA] text-lg mb-4"
               />
-              <button onClick={handleChat} disabled={chatLoading} style={{ marginBottom: 8 }}>
+              <button onClick={handleChat} disabled={chatLoading} className="bg-[#7F8CAA] hover:bg-[#6a7899] text-white font-bold px-8 py-3 rounded-xl text-lg shadow-md transition-all duration-200 w-full mb-4">
                 {chatLoading ? 'Loading...' : 'Send'}
               </button>
-              <div style={{ minHeight: 40 }}>{chatResponse}</div>
+              <div className="min-h-[40px] text-[#7F8CAA]">{chatResponse}</div>
             </div>
           )}
-
           {activeTool === 'tts' && (
-            <div className="about-card w-full max-w-none text-2xl p-12 min-h-[200px] md:col-span-2" style={{ minWidth: 0 }}>
-              <h3>Text-to-Speech</h3>
+            <div className="about-card w-full max-w-none text-2xl p-12 min-h-[200px] bg-gradient-to-br from-[#7F8CAA] to-white border border-[#7F8CAA] rounded-3xl shadow-xl">
+              <h3 className="text-2xl font-bold mb-6 text-[#333446]">Text-to-Speech</h3>
               <input
                 type="text"
                 value={ttsInput}
                 onChange={e => setTtsInput(e.target.value)}
                 placeholder="Enter text to speak..."
-                style={{ width: '100%', marginBottom: 8 }}
+                className="w-full border border-[#7F8CAA] rounded-lg px-4 py-3 bg-white text-[#333446] focus:outline-none focus:ring-2 focus:ring-[#7F8CAA] text-lg mb-4"
               />
-              <button onClick={handleTTS} disabled={ttsLoading} style={{ marginBottom: 8 }}>
+              <button onClick={handleTTS} disabled={ttsLoading} className="bg-[#7F8CAA] hover:bg-[#6a7899] text-white font-bold px-8 py-3 rounded-xl text-lg shadow-md transition-all duration-200 w-full mb-4">
                 {ttsLoading ? 'Creating audio...' : 'Convert Text to Speech'}
               </button>
               {ttsAudioUrl && (
-                <audio controls src={ttsAudioUrl} style={{ width: '100%' }} />
+                <audio controls src={ttsAudioUrl} className="w-full" />
               )}
             </div>
           )}
-
           {activeTool === 'wordgame' && (
-            <div className="about-card w-full max-w-none text-2xl p-12 min-h-[100px] md:col-span-2" style={{ minWidth: 0 }}>
-              <h3>Word Guess Game</h3>
-              <div
-            style={{
-              marginBottom: '12px',
-              textAlign: 'center',
-              display: 'flex',
-              justifyContent: 'center',
-              gap: '10px',
-              flexWrap: 'nowrap',
-            }}
-          >
-            <button
-              onClick={() => setShowHistory(false)}
-              disabled={!showHistory}
-              style={{
-                fontSize: '1.5rem',
-                padding: '6px 12px',
-                minWidth: '80px',
-                cursor: !showHistory ? 'not-allowed' : 'pointer',
-              }}
-            >
-              Play Game
-            </button>
-            <button
-              onClick={() => setShowHistory(true)}
-              disabled={showHistory}
-              style={{
-                fontSize: '1.5rem',
-                padding: '6px 12px',
-                minWidth: '110px',
-                cursor: showHistory ? 'not-allowed' : 'pointer',
-              }}
-            >
-              View Score History
-            </button>
-          </div>
-
-
-
+            <div className="about-card w-full max-w-none text-2xl p-12 min-h-[100px] bg-gradient-to-br from-[#7F8CAA] to-white border border-[#7F8CAA] rounded-3xl shadow-xl">
+              <h3 className="text-2xl font-bold mb-6 text-[#333446]">Word Guess Game</h3>
+              <div className="flex justify-center gap-4 mb-6">
+                <button
+                  onClick={() => setShowHistory(false)}
+                  disabled={!showHistory}
+                  className={`px-6 py-2 rounded-lg font-bold text-lg border border-[#7F8CAA] transition-all duration-200 ${!showHistory ? 'bg-[#7F8CAA] text-white' : 'bg-white text-[#7F8CAA] hover:bg-[#eaf0f0]'}`}
+                >
+                  Play Game
+                </button>
+                <button
+                  onClick={() => setShowHistory(true)}
+                  disabled={showHistory}
+                  className={`px-6 py-2 rounded-lg font-bold text-lg border border-[#7F8CAA] transition-all duration-200 ${showHistory ? 'bg-[#7F8CAA] text-white' : 'bg-white text-[#7F8CAA] hover:bg-[#eaf0f0]'}`}
+                >
+                  View Score History
+                </button>
+              </div>
               {showHistory ? (
                 <ScoreHistory username={username} />
               ) : (
@@ -165,7 +138,6 @@ const AIDemo = () => {
               )}
             </div>
           )}
-
         </div>
       </div>
     </section>

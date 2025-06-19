@@ -9,7 +9,7 @@
     font-weight: 400;
     color-scheme: dark;
     color: rgba(255, 255, 255, 0.95);
-    background-color: #1a1f2c;
+    background-color: #7F8CAA;
   }
 
   html {
@@ -21,7 +21,7 @@
     min-height: 100vh;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #1a1f2c 0%, #111827 100%);
+    background: linear-gradient(135deg, #7F8CAA 100%, #7F8CAA 100%);
     color: rgba(255, 255, 255, 0.9);
     line-height: 1.6;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
@@ -63,13 +63,13 @@
   }
 
   a {
-    color: #8B5CF6;
+    color: #7F8CAA;
     text-decoration: none;
     transition: all 0.2s ease-in-out;
   }
 
   a:hover {
-    color: #6D28D9;
+    color: #7F8CAA;
   }
 
   button {
@@ -123,23 +123,23 @@
   max-width: 400px;
   margin: 40px auto;
   padding: 24px;
-  background: #1f2937; /* אפור כהה */
+  background: #7F8CAA; 
   border-radius: 20px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
   text-align: center;
-  color: #f9fafb; /* טקסט לבן-בהיר */
+  color: #333446; 
 }
 
 .word-guess-game h2 {
   font-size: 2.2rem;
   font-weight: bold;
   margin-bottom: 16px;
-  color: #60a5fa;
+  color: #333446;
 }
 
 .word-guess-game p.hint {
-  font-size: 1.1rem;
-  color: #d1d5db;
+  font-size: 1.8rem;
+  color: #333446;
   margin-bottom: 12px;
 }
 
@@ -150,13 +150,13 @@
   background: #374151;
   border: 2px solid #4b5563;
   border-radius: 10px;
-  color: #f3f4f6;
+  color: #B8CFCE;
   outline: none;
 }
 
 .word-guess-game input[type="text"]:focus {
-  border-color: #60a5fa;
-  box-shadow: 0 0 8px #3b82f6aa;
+  border-color: #7F8CAA;
+  box-shadow: 0 0 8px #7F8CAA;
 }
 
 .word-guess-game .buttons {
@@ -176,21 +176,21 @@
 }
 
 .word-guess-game button.submit {
-  background-color: #10b981;
+  background-color: #7F8CAA;
   color: white;
 }
 
 .word-guess-game button.submit:hover {
-  background-color: #059669;
+  background-color: #7F8CAA;
 }
 
 .word-guess-game button.next {
-  background-color: #3b82f6;
+  background-color: #7F8CAA;
   color: white;
 }
 
 .word-guess-game button.next:hover {
-  background-color: #2563eb;
+  background-color: #7F8CAA;
 }
 
 .word-guess-game .feedback {
