@@ -59,21 +59,21 @@ const Index = ({ onNavigate }) => (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="group bg-gradient-to-br from-[#7F8CAA] to-white p-8 rounded-3xl border border-[#7F8CAA] hover:border-[#7F8CAA] transition-all duration-300 hover:shadow-lg hover:-translate-y-2">
             <div className="w-16 h-16 bg-gradient-to-br from-[#333446] to-[#7F8CAA] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 mx-auto">
-              <span className="text-white font-bold">P</span>
+              <span className="text-white font-bold">1</span>
             </div>
             <h3 className="text-xl font-bold text-[#333446] mb-4">Personalized Lessons</h3>
             <p className="text-[#7F8CAA]">Tailored learning paths that adapt to your pace and style</p>
           </div>
           <div className="group bg-gradient-to-br from-[#7F8CAA] to-white p-8 rounded-3xl border border-[#7F8CAA] hover:border-[#7F8CAA] transition-all duration-300 hover:shadow-lg hover:-translate-y-2">
             <div className="w-16 h-16 bg-gradient-to-br from-[#333446] to-[#7F8CAA] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 mx-auto">
-              <span className="text-white font-bold">F</span>
+              <span className="text-white font-bold">2</span>
             </div>
             <h3 className="text-xl font-bold text-[#333446] mb-4">Real-Time Feedback</h3>
             <p className="text-[#7F8CAA]">Instant corrections and suggestions to improve faster</p>
           </div>
           <div className="group bg-gradient-to-br from-[#7F8CAA] to-white p-8 rounded-3xl border border-[#7F8CAA] hover:border-[#7F8CAA] transition-all duration-300 hover:shadow-lg hover:-translate-y-2">
             <div className="w-16 h-16 bg-gradient-to-br from-[#333446] to-[#7F8CAA] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 mx-auto">
-              <span className="text-white font-bold">AI</span>
+              <span className="text-white font-bold">3</span>
             </div>
             <h3 className="text-xl font-bold text-[#333446] mb-4">AI Conversations</h3>
             <p className="text-[#7F8CAA]">Practice with intelligent tutors anytime, anywhere</p>
