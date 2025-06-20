@@ -10,6 +10,7 @@ export default function SignupForm({ onClose }) {
     confirm: '',
   });
 
+  const [status, setStatus] = useState({ type: '', message: '' });
   const [showCaptcha, setShowCaptcha] = useState(false);
   const captchaRef = useRef(null);
 
@@ -22,40 +23,42 @@ export default function SignupForm({ onClose }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-      // Check if password and confirm match
+
     if (formData.password !== formData.confirm) {
-      alert("Passwords do not match!");
+      setStatus({ type: 'error', message: 'Passwords do not match!' });
       return;
     }
-    setShowCaptcha(true); // Show modal; Captcha handles rest
+
+    setStatus({ type: '', message: '' }); // Clear old messages
+    setShowCaptcha(true); // Show captcha
   };
 
   const handleCaptchaSuccess = () => {
-    setShowCaptcha(false); // Hide modal
-    submitForm(); // Submit the form now
+    setShowCaptcha(false);
+    submitForm();
   };
 
   const submitForm = async () => {
-        try {
-          const { confirm, ...dataToSend } = formData; // exclude 'confirm'
-          const response = await fetch('/api/register', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(dataToSend),
-          });
+    try {
+      const { confirm, ...dataToSend } = formData;
+      const response = await fetch('/api/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(dataToSend),
+      });
 
       if (response.ok) {
-        alert('Registration successful!');
+        setStatus({ type: 'success', message: 'Registration successful! Redirecting...' });
         localStorage.setItem("loggedInUser", JSON.stringify(formData));
-        window.location.href = "index.html";
+        setTimeout(() => {
+          window.location.href = "index.html";
+        }, 1000);
       } else {
-        
-        alert('Failed to register user.');
-        
+        setStatus({ type: 'error', message: 'Failed to register user.' });
       }
     } catch (error) {
       console.error('Registration error:', error);
-      alert('An error occurred. Please try again.');
+      setStatus({ type: 'error', message: 'An error occurred. Please try again.' });
     }
   };
 
@@ -74,6 +77,12 @@ export default function SignupForm({ onClose }) {
           <button type="submit" className="w-full bg-blue-600 text-white py-2 rounded-xl hover:bg-blue-700 transition">
             Register
           </button>
+
+          {status.message && (
+            <div className={`text-sm mt-2 text-center ${status.type === 'success' ? 'text-green-500' : 'text-red-500'}`}>
+              {status.message}
+            </div>
+          )}
         </form>
       </div>
 
@@ -88,7 +97,6 @@ export default function SignupForm({ onClose }) {
           </div>
         </div>
       )}
-      
     </>
   );
 }

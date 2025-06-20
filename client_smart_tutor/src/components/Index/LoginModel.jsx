@@ -6,6 +6,8 @@ const LoginModel = ({ onClose }) => {
     password: ''
   });
 
+  const [status, setStatus] = useState({ type: '', message: '' });
+
   const handleChange = (e) => {
     setFormData(prev => ({
       ...prev,
@@ -26,18 +28,18 @@ const LoginModel = ({ onClose }) => {
       const data = await response.json();
 
       if (response.ok && data.success) {
-        alert('Login successful!');
+        setStatus({ type: 'success', message: 'Login successful! Redirecting...' });
         localStorage.setItem("loggedInUser", JSON.stringify(data.user));
-        window.location.href = "index.html"; // ✅ Optional: Replace with React routing if SPA
+        setTimeout(() => {
+          window.location.href = "index.html"; // ✅ Replace with React router if needed
+        }, 1000);
       } else {
-        alert(data.error || 'Invalid login');
+        setStatus({ type: 'error', message: data.error || 'InCorrect username or password' });
       }
     } catch (error) {
       console.error('Login error:', error);
-      alert('An error occurred. Please try again.');
+      setStatus({ type: 'error', message: 'An error occurred. Please try again.' });
     }
-
-    onClose();
   };
 
   return (
@@ -81,6 +83,16 @@ const LoginModel = ({ onClose }) => {
           >
             Log In
           </button>
+
+          {status.message && (
+            <div
+              className={`text-sm mt-2 ${
+                status.type === 'success' ? 'text-green-500' : 'text-red-500'
+              }`}
+            >
+              {status.message}
+            </div>
+          )}
         </form>
       </div>
     </div>

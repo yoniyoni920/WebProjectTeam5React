@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 const UpdateUserForm = () => {
   const storedUser = JSON.parse(localStorage.getItem("loggedInUser"));
@@ -7,6 +7,8 @@ const UpdateUserForm = () => {
     email: storedUser?.email || '',
     password: storedUser?.password || ''
   });
+
+  const [status, setStatus] = useState({ type: '', message: '' });
 
   const handleChange = (e) => {
     setFormData(prev => ({
@@ -19,31 +21,42 @@ const UpdateUserForm = () => {
     e.preventDefault();
 
     try {
-        const username = JSON.parse(localStorage.getItem("loggedInUser"))?.username;
-        const response = await fetch(`/api/update?username=${username}`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email: formData.email, password: formData.password }),
-        });
-
-
+      const username = JSON.parse(localStorage.getItem("loggedInUser"))?.username;
+      const response = await fetch(`/api/update?username=${username}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: formData.email, password: formData.password }),
+      });
 
       const result = await response.json();
       if (response.ok) {
-        alert('User updated successfully!');
         localStorage.setItem("loggedInUser", JSON.stringify(formData));
+        setStatus({ type: 'success', message: 'User updated successfully!' });
       } else {
-        alert(result.message || 'Failed to update user');
+        setStatus({ type: 'error', message: result.message || 'Failed to update user' });
       }
     } catch (err) {
       console.error("Update error:", err);
-      alert('Error updating user');
+      setStatus({ type: 'error', message: 'Error updating user' });
     }
   };
 
   return (
     <div className="max-w-md mx-auto bg-gray-800 text-white p-6 rounded-lg shadow-md">
       <h2 className="text-2xl mb-4 font-semibold">Update Your Info</h2>
+
+      {status.message && (
+        <div
+          className={`p-3 mb-4 rounded ${
+            status.type === 'success'
+              ? 'bg-green-600 text-white'
+              : 'bg-red-600 text-white'
+          }`}
+        >
+          {status.message}
+        </div>
+      )}
+
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label htmlFor="email" className="block text-gray-300">Email:</label>
