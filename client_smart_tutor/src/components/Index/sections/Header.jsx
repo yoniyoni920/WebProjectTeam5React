@@ -27,7 +27,7 @@ const Header = ({ onLoginClick, onSignupClick, onNavigate }) => {
 
 
   return (
-  <header className="fixed top-0 left-0 right-0 bg-gray-800 text-white px-4 py-3 shadow-md z-50 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+     <header className="fixed top-0 left-0 right-0 bg-gray-800 dark:bg-gray-900 text-white px-4 py-3 shadow-md z-50 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
       <div className="text-2xl font-bold mb-4 md:mb-0">TALKWISE</div>
 
       <nav className="mb-4 md:mb-0">

@@ -620,14 +620,9 @@ body.dark-mode .testimonial-card {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
 }
 
-body.dark-mode .nav-links a,
-body.dark-mode .nav-links button {
-  background-color: #3a4552 !important;
-  color: #f0f0f0 !important;
-}
-body.dark-mode .nav-links a:hover,
+body.dark-mode .nav-links button,
 body.dark-mode .nav-links button:hover {
-  background-color: #4a5563 !important;
+  background-color: transparent !important;
   color: #ffffff !important;
 }
 

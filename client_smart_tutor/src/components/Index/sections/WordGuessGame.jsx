@@ -212,14 +212,16 @@ const loadNewWord = (incrementRound = true, overrideDifficulty = difficultyLevel
       <h2>🎯 Word Guess Game</h2>
       {canPlayMore ? (
         <>
-        <h3 style={{
-          color: '#7F8CAA',
+        <h4 style={{
+          color: 'black',
           fontSize: '1.3rem',
           fontWeight: 'bold',
-          marginBottom: '12px'
+          marginBottom: '12px',
+          
+
         }}>
-          🎯 Current Difficulty: <span style={{ color: '#2A9D8F' }}>{difficultyLevel}</span>
-        </h3>
+           Current Difficulty: <span style={{ color: '#2A9D8F' }}>{difficultyLevel}</span>
+        </h4>
           <p className="hint" style={{ color: '#333446', background: '#EAEFEF', borderRadius: 12, padding: '16px 32px', display: 'block', fontSize: '1.5rem', fontWeight: 700, marginBottom: 24, textAlign: 'center', marginLeft: 'auto', marginRight: 'auto', boxShadow: '0 2px 8px rgba(127,140,170,0.10)' }}>
             <span style={{ color: '#7F8CAA', fontWeight: 800 }}>Question:</span> {currentWord.question}
           </p>

@@ -51,9 +51,23 @@ function Index() {
 
   return (
     <>
-      {showLogin && <LoginModel onClose={closeLoginModel} />}
-      {showSignupForm && <SignupForm onClose={closeSignupFormModel} />}
-      {showUpdateForm && <UpdateUserForm />} 
+      {showLogin && (
+        <div className="mt-24 z-50">
+          <LoginModel onClose={closeLoginModel} />
+        </div>
+      )}
+
+
+      {showSignupForm && 
+       <div className="mt-24 z-50">
+          <SignupForm onClose={closeSignupFormModel} />
+        </div>}
+
+        
+      {showUpdateForm && 
+        <div className="mt-24 z-50">
+          <UpdateUserForm />
+        </div>} 
 
       <Header
         onLoginClick={openLoginModel}
@@ -63,7 +77,7 @@ function Index() {
 
       
       {loggedInUser && !showLogin && !showSignupForm && (
-        <div className="fixed bottom-6 right-6 z-50">
+        <div className="fixed bottom-8 right-6 z-50">
           <button
             onClick={toggleUpdateForm}
             className="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded"
