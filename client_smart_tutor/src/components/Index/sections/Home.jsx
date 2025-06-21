@@ -57,21 +57,24 @@ const Index = ({ onNavigate }) => (
           Our platform combines cutting-edge AI technology with proven learning methodologies to help you achieve English fluency faster than traditional methods.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="group bg-gradient-to-br from-[#7F8CAA] to-white p-8 rounded-3xl border border-[#7F8CAA] hover:border-[#7F8CAA] transition-all duration-300 hover:shadow-lg hover:-translate-y-2">
+          <div className="group home-card p-8 rounded-3xl border border-[#7F8CAA] hover:border-[#7F8CAA] transition-all duration-300 hover:shadow-lg hover:-translate-y-2">
+
             <div className="w-16 h-16 bg-gradient-to-br from-[#333446] to-[#7F8CAA] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 mx-auto">
               <span className="text-white font-bold">1</span>
             </div>
             <h3 className="text-xl font-bold text-[#333446] mb-4">Personalized Lessons</h3>
             <p className="text-[#7F8CAA]">Tailored learning paths that adapt to your pace and style</p>
           </div>
-          <div className="group bg-gradient-to-br from-[#7F8CAA] to-white p-8 rounded-3xl border border-[#7F8CAA] hover:border-[#7F8CAA] transition-all duration-300 hover:shadow-lg hover:-translate-y-2">
+          <div className="group home-card p-8 rounded-3xl border border-[#7F8CAA] hover:border-[#7F8CAA] transition-all duration-300 hover:shadow-lg hover:-translate-y-2">
+
             <div className="w-16 h-16 bg-gradient-to-br from-[#333446] to-[#7F8CAA] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 mx-auto">
               <span className="text-white font-bold">2</span>
             </div>
             <h3 className="text-xl font-bold text-[#333446] mb-4">Real-Time Feedback</h3>
             <p className="text-[#7F8CAA]">Instant corrections and suggestions to improve faster</p>
           </div>
-          <div className="group bg-gradient-to-br from-[#7F8CAA] to-white p-8 rounded-3xl border border-[#7F8CAA] hover:border-[#7F8CAA] transition-all duration-300 hover:shadow-lg hover:-translate-y-2">
+          <div className="group home-card p-8 rounded-3xl border border-[#7F8CAA] hover:border-[#7F8CAA] transition-all duration-300 hover:shadow-lg hover:-translate-y-2">
+
             <div className="w-16 h-16 bg-gradient-to-br from-[#333446] to-[#7F8CAA] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 mx-auto">
               <span className="text-white font-bold">3</span>
             </div>
@@ -94,21 +97,24 @@ const Index = ({ onNavigate }) => (
           Get started in minutes and begin your journey to English fluency with our simple, effective process.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="bg-white rounded-3xl shadow-lg p-8 border border-[#B8CFCE] hover:shadow-xl transition-all duration-300">
+          <div className="process-card rounded-3xl shadow-lg p-8 border border-[#B8CFCE] hover:shadow-xl transition-all duration-300">
+
             <div className="w-20 h-20 bg-gradient-to-r from-[#333446] to-[#333446] rounded-2xl flex items-center justify-center mx-auto mb-6">
               <span className="text-white text-2xl font-bold">1</span>
             </div>
             <h3 className="text-xl font-bold text-[#333446] mb-4">Sign Up</h3>
             <p className="text-[#7F8CAA]">Create your profile and let our AI understand your goals</p>
           </div>
-          <div className="bg-white rounded-3xl shadow-lg p-8 border border-[#B8CFCE] hover:shadow-xl transition-all duration-300">
+          <div className="process-card rounded-3xl shadow-lg p-8 border border-[#B8CFCE] hover:shadow-xl transition-all duration-300">
+
             <div className="w-20 h-20 bg-gradient-to-r from-[#7F8CAA] to-[#7F8CAA] rounded-2xl flex items-center justify-center mx-auto mb-6">
               <span className="text-white text-2xl font-bold">2</span>
             </div>
             <h3 className="text-xl font-bold text-[#333446] mb-4">Practice</h3>
             <p className="text-[#7F8CAA]">Engage with interactive lessons and AI conversations</p>
           </div>
-          <div className="bg-white rounded-3xl shadow-lg p-8 border border-[#B8CFCE] hover:shadow-xl transition-all duration-300">
+          <div className="process-card rounded-3xl shadow-lg p-8 border border-[#B8CFCE] hover:shadow-xl transition-all duration-300">
+
             <div className="w-20 h-20 bg-gradient-to-r from-[#B8CFCE] to-[#B8CFCE] rounded-2xl flex items-center justify-center mx-auto mb-6">
               <span className="text-white text-2xl font-bold">3</span>
             </div>
@@ -132,11 +138,12 @@ const Index = ({ onNavigate }) => (
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonials.map((t, i) => (
-            <div key={i} className="group bg-white rounded-3xl shadow-lg p-8 border border-[#B8CFCE] hover:shadow-xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
+            <div key={i} className="testimonial-card group rounded-3xl shadow-lg p-8 border border-[#B8CFCE] hover:shadow-xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
+
               <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[#B8CFCE]/30 to-[#7F8CAA]/30 rounded-bl-full"></div>
               <div className="flex items-center mb-6">
                 {Array.from({ length: t.stars }).map((_, idx) => (
-                  <span key={idx} className="text-yellow-400 text-xl">★</span>
+                  <span key={idx} className="text-yellow-400 text-xl dark:text-yellow-400 text-xl">★</span>
                 ))}
               </div>
               <p className="text-[#7F8CAA] mb-8 leading-relaxed text-lg italic">"{t.text}"</p>
@@ -146,7 +153,8 @@ const Index = ({ onNavigate }) => (
                 </div>
                 <div>
                   <div className="font-bold text-[#333446] text-lg">{t.name}</div>
-                  <div className="text-[#7F8CAA]">{t.role}</div>
+                  <div className="role-text text-[#7F8CAA]">{t.role}</div>
+
                 </div>
               </div>
             </div>

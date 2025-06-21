@@ -407,7 +407,7 @@ button:hover {
   color: #fff;
   cursor: pointer;
 }
-
+/*
 @media (max-width: 510px) {
   .accessibility-toggle {
     top: 285px;
@@ -421,35 +421,35 @@ button:hover {
     padding: 12px;
   }
 }
-
-@media (min-width: 511px) and (max-width: 767px) {
+*/
+@media (min-width: 50px) and (max-width: 767px) {
   .accessibility-toggle {
-    top: 260px;
+    top: 220px;
     padding: 9px 13px;
     font-size: 13px;
   }
   .accessibility-panel {
-    top: 300px;
+    top: 265px;
     width: 160px;
     padding: 12px;
   }
 }
 
-@media (min-width: 768px) and (max-width: 1480px) {
+@media (min-width: 768px) and (max-width: 796px) {
   .accessibility-toggle {
-    top: 135px;
+    top: 80px;
   }
   .accessibility-panel {
-    top: 175px;
+    top: 125px;
   }
 }
 
-@media (min-width: 1481px) {
+@media (min-width: 797px) {
   .accessibility-toggle {
-    top: 105px;
+    top: 60px;
   }
   .accessibility-panel {
-    top: 145px;
+    top: 105px;
   }
 }
 
@@ -465,4 +465,250 @@ button:hover {
 #our-team-text,
 #our-vision-text {
   color: #333446 !important;
+}
+
+
+body.dark-mode {
+  background-color: #3a4a58 !important;
+  color: #f0f0f0 !important;
+}
+
+/* הסרת גרדיאנט + רקע אחיד */
+body.dark-mode section,
+body.dark-mode .main-section,
+body.dark-mode .about-card,
+body.dark-mode .content-section,
+body.dark-mode .form-container,
+body.dark-mode .word-guess-game,
+body.dark-mode .modal,
+body.dark-mode .footer,
+body.dark-mode .nav-container {
+  background-image: none !important;
+  background-color: #3a4a58 !important;
+  color: #f0f0f0 !important;
+  border-color: #4c5a67 !important;
+}
+
+/* כפתורים */
+body.dark-mode button,
+body.dark-mode .accessibility-button {
+  background-color: #4c5a67 !important;
+  color: #ffffff !important;
+  border: 1px solid #6c7a88 !important;
+}
+body.dark-mode button:hover {
+  background-color: #5b6a79 !important;
+}
+
+/* שדות קלט */
+body.dark-mode input,
+body.dark-mode textarea {
+  background-color: #687a8a !important;
+  color: #ffffff !important;
+  border-color: #6c7a88 !important;
+}
+body.dark-mode input:focus,
+body.dark-mode textarea:focus {
+  border-color: #9eaab5 !important;
+  box-shadow: 0 0 0 2px #9eaab5 !important;
+}
+
+/* טיפוגרפיה */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+  color: #ffffff !important;
+}
+
+body.dark-mode p,
+body.dark-mode span,
+body.dark-mode li,
+body.dark-mode label {
+  color: #e0e0e0 !important;
+}
+
+/* טבלאות */
+body.dark-mode table {
+  background-color: #3a4a58 !important;
+  color: #ffffff !important;
+}
+body.dark-mode th,
+body.dark-mode td {
+  border-color: #4c5a67 !important;
+}
+
+body.dark-mode .nav-container {
+  background-color: #2f3b4a !important;
+  border-bottom: 1px solid #4c5a67 !important;
+}
+
+body.dark-mode .about-card {
+  background-color: #4c5a67 !important;
+  color: #ffffff !important;
+  border-color: #6a7a88 !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3) !important;
+}
+body.dark-mode .about-card p,
+body.dark-mode .about-card li,
+body.dark-mode .about-card h3 {
+  color: #f0f0f0 !important;
+}
+
+
+body.dark-mode .section-title,
+body.dark-mode .section-text {
+  color: #ffffff !important;
+}
+
+/* כרטיסים של עמוד הבית */
+body.dark-mode .home-card {
+  background: #7c98b3;
+  background-color: #7c98b3 !important;
+  color: #f0f0f0 !important;
+  border-color: #6a7a88 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+}
+body.dark-mode .home-card h3,
+body.dark-mode .home-card p {
+  color: #f0f0f0 !important;
+}
+/* מצב רגיל */
+.article-card {
+  background: linear-gradient(to bottom right, #7F8CAA, #ffffff);
+  color: #333446;
+}
+
+/* מצב לילה */
+body.dark-mode .article-card {
+  background: #7c98b3 !important;
+  color: #f0f0f0 !important;
+  border-color: #6a7a88 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+body.dark-mode .article-card h3,
+body.dark-mode .article-card p,
+body.dark-mode .article-card div {
+  color: #f0f0f0 !important;
+}
+
+/* מצב יום */
+.home-card {
+  background: linear-gradient(to bottom right, #7F8CAA, #ffffff);
+  color: #333446;
+}
+.process-card {
+  background-color: #ffffff;
+  color: #333446;
+}
+.testimonial-card {
+  background-color: #ffffff;
+  color: #333446;
+}
+
+/* מצב לילה */
+
+body.dark-mode .home-card,
+body.dark-mode .process-card,
+body.dark-mode .testimonial-card {
+  background: #7c98b3 !important;
+  color: #f0f0f0 !important;
+  border-color: #6a7a88 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+body.dark-mode .nav-links a,
+body.dark-mode .nav-links button {
+  background-color: #3a4552 !important;
+  color: #f0f0f0 !important;
+}
+body.dark-mode .nav-links a:hover,
+body.dark-mode .nav-links button:hover {
+  background-color: #4a5563 !important;
+  color: #ffffff !important;
+}
+
+/* footer מצב לילה */
+body.dark-mode .footer {
+  background-color: #2f3b4a !important;
+  color: #e0e0e0 !important;
+  border-top: 1px solid #4c5a67 !important;
+}
+body.dark-mode .footer a {
+  color: #ccc !important;
+}
+body.dark-mode .footer a:hover {
+  color: #fff !important;
+}
+
+/* מצב רגיל */
+.contact-section {
+  background: linear-gradient(to bottom right, #EAEFEF, #B8CFCE);
+  border-color: #7F8CAA;
+}
+
+/* מצב לילה */
+body.dark-mode .contact-section {
+  background-color: #7c98b3 !important;
+  border-color: #6a7a88 !important;
+  color: #f0f0f0 !important;
+}
+
+/*tests*/
+
+.main-content,
+.content-wrapper {
+  background: transparent;
+}
+.app-container,
+.site-wrapper {
+  background-color: #EAEFEF;
+}
+
+
+.hint, .score-round {
+  background-color: #EAEFEF;
+  color: #333446;
+}
+
+body.dark-mode .hint,
+body.dark-mode .score-round {
+  background-color: #4a5a66 !important;
+  color: #f0f0f0 !important;
+}
+body.dark-mode .app-container,
+body.dark-mode .site-wrapper {
+  background-color: #2f3b4a !important;
+}
+
+body.dark-mode .about-card {
+  background-color: #7c98b3 !important;           /* כחול־אפור רך, בהיר יחסית לרקע */
+  border: 1.5px solid #637081 !important;         /* גבול תכלת דק */
+  color: #f8f9fb !important;                      /* טקסט בהיר וקריא */
+  border-radius: 24px !important;
+  padding: 2rem !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3) !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+body.dark-mode .about-card h3,
+body.dark-mode .about-card p,
+body.dark-mode .about-card li {
+  color: #f8f9fb !important;
+}
+body.dark-mode .testimonial-card span {
+  color: #facc15 !important; /* צהוב */
+}
+
+body.dark-mode .testimonial-card .role-text {
+  color: #ffffff !important;
+}
+body.dark-mode .services-section {
+  background: #7c98b3 !important;
+  border-color: #6a8298 !important;
+  color: #ffffff !important;
 }

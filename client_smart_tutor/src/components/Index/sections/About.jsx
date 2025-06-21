@@ -5,14 +5,17 @@ const About = () => (
     <div className="max-w-7xl mx-auto px-6 text-center">
       <h2 className="text-4xl lg:text-5xl font-black text-[#333446] mb-6">About Us</h2>
       <div className="about-grid grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="about-card group bg-gradient-to-br from-[#333446] to-white p-8 rounded-3xl border border-[#333446] hover:border-[#333446] transition-all duration-300 hover:shadow-lg hover:-translate-y-2">
+        <div className="about-card group  p-8 rounded-3xl border border-[#333446] hover:border-[#333446] transition-all duration-300 hover:shadow-lg hover:-translate-y-2">
           <h3 id="about-mission-title" className="text-2xl font-bold mb-6">Our Mission</h3>
           <p id="about-mission-text" className="text-[#7F8CAA] text-lg leading-relaxed">
             We are a team of passionate computer science students dedicated to revolutionizing English language learning through artificial intelligence.<br/>
             Our goal is to make language learning accessible, engaging, and effective for everyone.
           </p>
         </div>
-        <div className="about-card group bg-gradient-to-br from-[#7F8CAA] to-white p-8 rounded-3xl border border-[#7F8CAA] hover:border-[#7F8CAA] transition-all duration-300 hover:shadow-lg hover:-translate-y-2">
+        <div className="about-card group p-8 rounded-3xl bg-yellow-100 text-yellow-900 dark:bg-yellow-700 dark:text-yellow-100 transition-all duration-300 hover:shadow-lg hover:-translate-y-2">
+
+
+
           <h3 id="smart-tutor-title" className="text-2xl font-bold mb-6">Smart Tutor</h3>
           <p id="smart-tutor-text" className="text-[#7F8CAA] text-lg leading-relaxed">
             Smart Tutor is our innovative platform that combines cutting-edge AI technology with proven language learning methodologies.<br/>

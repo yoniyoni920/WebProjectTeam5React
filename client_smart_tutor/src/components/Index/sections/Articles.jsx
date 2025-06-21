@@ -39,8 +39,9 @@ const Articles = () => {
               href={article.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group bg-gradient-to-br from-[#7F8CAA] to-white border border-[#7F8CAA] rounded-3xl p-12 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 block shadow-xl"
+              className="article-card group border border-[#7F8CAA] rounded-3xl p-12 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 block shadow-xl"
             >
+
               <div className="text-lg text-[#7F8CAA] mb-4 font-bold">{article.category} • {article.level}</div>
               <h3 className="text-3xl font-extrabold mb-4 text-[#333446] group-hover:underline">{article.title}</h3>
               <p className="text-[#7F8CAA] mb-6 text-xl leading-relaxed">{article.description}</p>
