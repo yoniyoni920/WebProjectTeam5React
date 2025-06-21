@@ -1,60 +1,62 @@
 import React, { useState, useEffect } from 'react';
 
 // Word list
-const wordBank = [
+const wordBankEasy = [
   { question: "חתול באנגלית", answer: "cat" },
   { question: "A vehicle with two wheels", answer: "bike" },
   { question: "I drink a cup of _____ every morning", answer: "coffee" },
-  { question: "מלך החיות באנגלית", answer: "lion" },
   { question: "Opposite of 'cold'", answer: "hot" },
   { question: "A yellow fruit monkeys like", answer: "banana" },
-  { question: "The largest planet in our solar system", answer: "jupiter" },
-  { question: "The color of the sky on a clear day", answer: "blue" },
-  { question: "The season after winter", answer: "spring" },
+  { question: "The color of the sky", answer: "blue" },
   { question: "I use this to write on paper", answer: "pen" },
-  { question: "What bees produce", answer: "honey" },
-  { question: "מספר 3 באנגלית", answer: "three" },
-  { question: "The capital of France", answer: "paris" },
   { question: "Opposite of 'up'", answer: "down" },
   { question: "An animal that barks", answer: "dog" },
-  { question: "The planet we live on", answer: "earth" },
-  { question: "A place with lots of books", answer: "library" },
-  { question: "I sleep on this", answer: "bed" },
-  { question: "Opposite of 'day'", answer: "night" },
-  { question: "A cold frozen treat", answer: "icecream" },
-  { question: "A small insect that makes silk", answer: "silkworm" },
-  { question: "The color of grass", answer: "green" },
-  { question: "A tool to cut paper", answer: "scissors" },
-  { question: "I wear this on my feet", answer: "shoes" },
-  { question: "The number after nine", answer: "ten" },
-  { question: "Opposite of 'fast'", answer: "slow" },
-  { question: "The sport with a bat and ball", answer: "baseball" },
-  { question: "I use this to talk on the phone", answer: "ear" },
-  { question: "A bird that cannot fly", answer: "ostrich" },
-  { question: "A sweet fruit, often red or green", answer: "apple" },
-  { question: "The month after December", answer: "january" },
-  { question: "Opposite of 'light'", answer: "dark" },
-  { question: "The animal that has a trunk", answer: "elephant" },
-  { question: "I drink water from this", answer: "glass" },
-  { question: "A number between 5 and 7", answer: "six" },
-  { question: "A place where you buy medicine", answer: "pharmacy" },
-  { question: "Opposite of 'happy'", answer: "sad" },
-  { question: "A fruit with lots of seeds inside", answer: "pomegranate" },
-  { question: "I wear this on my head", answer: "hat" },
-  { question: "A planet known as the Red Planet", answer: "mars" },
-  { question: "Opposite of 'full'", answer: "empty" },
-  { question: "A big cat with stripes", answer: "tiger" },
-  { question: "A vehicle that flies", answer: "plane" },
-  { question: "The color of snow", answer: "white" },
-  { question: "A popular Italian dish made with dough and cheese", answer: "pizza" },
-  { question: "The first day of the week", answer: "sunday" },
-  { question: "A number greater than zero", answer: "one" },
-  { question: "The sound a cow makes", answer: "moo" },
-  { question: "Opposite of 'yes'", answer: "no" },
+  { question: "The color of snow", answer: "white" }
+];
+const wordBankMedium = [
+  { question: "The opposite of 'begin'", answer: "end" },
+  { question: "Synonym for 'smart'", answer: "clever" },
+  { question: "The color of a ripe tomato", answer: "red" },
+  { question: "The place where you watch movies", answer: "cinema" },
+  { question: "Insects that make honey", answer: "bees" },
+  { question: "The gas we breathe", answer: "oxygen" },
+  { question: "A musical instrument with keys", answer: "piano" },
+  { question: "Frozen water is called", answer: "ice" },
+  { question: "The organ that pumps blood", answer: "heart" },
+  { question: "The part of the body used for hearing", answer: "ear" }
+];
+const wordBankHard = [
+  { question: "A scientist who studies living organisms", answer: "biologist" },
+  { question: "The capital city of Australia", answer: "canberra" },
+  { question: "The hardest natural substance", answer: "diamond" },
+  { question: "A word meaning 'fear of closed spaces'", answer: "claustrophobia" },
+  { question: "The chemical symbol for gold", answer: "au" },
+  { question: "A book of synonyms", answer: "thesaurus" },
+  { question: "The process of plants making food from sunlight", answer: "photosynthesis" },
+  { question: "A triangle with all sides different", answer: "scalene" },
+  { question: "The study of the universe", answer: "cosmology" },
+  { question: "An animal that hibernates in winter", answer: "bear" }
 ];
 
-// Helper to send score to backend
-const saveScoreToServer = async ({ username, score, correctAnswers, attempts }) => {
+const Easy = "Easy";
+const Medium = "Medium";
+const Hard = "Hard";
+
+
+function calculateNextDifficulty(current, score) {
+  if (score > 3) {
+    if (current === Easy) return Medium;
+    if (current === Medium) return Hard;
+  } else if (score < 3) {
+    if (current === Hard) return Medium;
+    if (current === Medium) return Easy;
+  }
+  return current;
+}
+
+
+
+const saveScoreToServer = async ({ username, score, correctAnswers, attempts, difficultyLevel }) => {
   try {
     const res = await fetch('/api/save-score', {
       method: "POST",
@@ -66,6 +68,7 @@ const saveScoreToServer = async ({ username, score, correctAnswers, attempts }) 
         score,
         correctAnswers,
         attempts,
+        difficultyLevel,
         timestamp: new Date().toISOString()
       })
     });
@@ -75,6 +78,21 @@ const saveScoreToServer = async ({ username, score, correctAnswers, attempts }) 
     console.error("❌ Error saving score:", err);
   }
 };
+const getDifficultyFromServer = async ({ username }) => {
+  try {
+  const res = await fetch(`/api/get-user-difficulty?username=${encodeURIComponent(username)}`);
+  const data = await res.json();
+
+    if (!res.ok) throw new Error(data.error || 'Failed to fetch difficulty');
+
+    return data;
+  } catch (err) {
+    console.error("Error fetching difficulty:", err);
+    return { difficulty: "Easy" }; // fallback only on real error
+  }
+};
+
+
 
 export default function WordGuessGame({ username }) {
   const [usedIndexes, setUsedIndexes] = useState([]);
@@ -86,63 +104,76 @@ export default function WordGuessGame({ username }) {
   const [round, setRound] = useState(1);
   const [attemptsLeft, setAttemptsLeft] = useState(3);
   const [isAnswered, setIsAnswered] = useState(false);
-
+  const [difficultyLevel, setDifficulty] = useState(Easy);
+  const [loading, setLoading] = useState(true);
   const maxRounds = 5;
 
   useEffect(() => {
-    loadNewWord(false); // don't increment round on first load
-  }, []);
-
-  const loadNewWord = (incrementRound = true) => {
-    if (round > maxRounds) {
-      // Game over, no more words
-      setFeedback(`🎉 Game Over! Final score: ${score}`);
-      return;
-    }
-
-    if (usedIndexes.length >= wordBank.length) {
-      setFeedback(`🎉 Game Over! Final score: ${score}`);
+    const init = async () => {
+      let difficulty = Easy;
       if (username) {
-        saveScoreToServer({
-          username,
-          score,
-          correctAnswers,
-          attempts: round - 1
-        });
+        const data = await getDifficultyFromServer({ username });
+        difficulty = data?.difficulty || Easy;
       }
-      return;
+      setDifficulty(difficulty);
+      setLoading(false);
+      loadNewWord(false, difficulty); // pass difficulty to use the right word bank
+    };
+
+    init();
+  }, []);
+  useEffect(() => {
+  if (round > maxRounds || usedIndexes.length >= getWordBankByDifficulty(difficultyLevel).length) {
+    const newLevel = calculateNextDifficulty(difficultyLevel, score);
+    
+
+    if (newLevel !== difficultyLevel) {
+      setFeedback(`🎉 Game Over! Final score: ${score}\nYour New Difficulty is: ${newLevel}`);
+    } else {
+      setFeedback(`🎉 Game Over! Final score: ${score}`);
     }
-
-    let index;
-    do {
-      index = Math.floor(Math.random() * wordBank.length);
-    } while (usedIndexes.includes(index));
-
-    setUsedIndexes(prev => [...prev, index]);
-    setCurrentWord(wordBank[index]);
-    setGuess("");
-    setFeedback("");
-    setAttemptsLeft(3);
-    setIsAnswered(false);
-
-    if (incrementRound) {
-      setRound(prev => {
-        const nextRound = prev + 1;
-
-        if (nextRound > maxRounds && username) {
-          saveScoreToServer({
-            username,
-            score,
-            correctAnswers,
-            attempts: maxRounds
-          });
-        }
-
-        return nextRound;
+    setDifficulty(newLevel);
+    if (username) {
+      saveScoreToServer({
+        username,
+        score,
+        correctAnswers,
+        attempts: round - 1,
+         difficultyLevel: newLevel
       });
     }
-  };
+  }
+}, [round, usedIndexes]); // runs after last round or used up all words
+const loadNewWord = (incrementRound = true, overrideDifficulty = difficultyLevel) => {
+  const wordBank = getWordBankByDifficulty(overrideDifficulty);
 
+  if (round > maxRounds || usedIndexes.length >= wordBank.length) return;
+
+  let index;
+  do {
+    index = Math.floor(Math.random() * wordBank.length);
+  } while (usedIndexes.includes(index));
+
+  setUsedIndexes(prev => [...prev, index]);
+  setCurrentWord(wordBank[index]);
+  setGuess("");
+  setFeedback("");
+  setAttemptsLeft(3);
+  setIsAnswered(false);
+
+  if (incrementRound) {
+    setRound(prev => prev + 1);
+  }
+};
+
+  const getWordBankByDifficulty = (level) => {
+    switch (level) {
+      case Medium: return wordBankMedium;
+      case Hard: return wordBankHard;
+      case Easy: return wordBankEasy;
+      default: return wordBankEasy;
+    }
+  };
   const handleSubmit = () => {
     if (isAnswered || attemptsLeft === 0 || round > maxRounds) return;
 
@@ -173,12 +204,22 @@ export default function WordGuessGame({ username }) {
   };
 
   const canPlayMore = round <= maxRounds;
-
+  if (loading) {
+    return <p style={{ textAlign: 'center', marginTop: 40, fontSize: '1.5rem' }}>Loading...</p>;
+  }
   return (
     <div className="word-guess-game dark" style={{ maxWidth: '500px', margin: 'auto', textAlign: 'center' }}>
       <h2>🎯 Word Guess Game</h2>
       {canPlayMore ? (
         <>
+        <h3 style={{
+          color: '#7F8CAA',
+          fontSize: '1.3rem',
+          fontWeight: 'bold',
+          marginBottom: '12px'
+        }}>
+          🎯 Current Difficulty: <span style={{ color: '#2A9D8F' }}>{difficultyLevel}</span>
+        </h3>
           <p className="hint" style={{ color: '#333446', background: '#EAEFEF', borderRadius: 12, padding: '16px 32px', display: 'block', fontSize: '1.5rem', fontWeight: 700, marginBottom: 24, textAlign: 'center', marginLeft: 'auto', marginRight: 'auto', boxShadow: '0 2px 8px rgba(127,140,170,0.10)' }}>
             <span style={{ color: '#7F8CAA', fontWeight: 800 }}>Question:</span> {currentWord.question}
           </p>
@@ -217,8 +258,12 @@ export default function WordGuessGame({ username }) {
           </p>
         </>
       ) : (
+
+
+
+        
         <p style={{ fontSize: '2rem', fontWeight: 'bold', marginTop: '32px', color: '#333446', background: '#EAEFEF', borderRadius: 12, padding: '18px 36px', display: 'block', textAlign: 'center', marginLeft: 'auto', marginRight: 'auto', boxShadow: '0 2px 8px rgba(127,140,170,0.10)' }}>
-          🎉 Game Over! Final score: {score} / {maxRounds}
+         {feedback }
         </p>
       )}
     </div>

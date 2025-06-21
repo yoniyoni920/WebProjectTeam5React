@@ -12,6 +12,7 @@ const saveScoreRoute = require('./routes/save-score');
 const loggedInUsersRoute = require('./routes/loggedinusers');
 const registerRoute = require('./routes/register');
 const updateRoute = require('./routes/update');
+const getUserDifficulty = require('./routes/get-user-difficulty');
 const app = express();
 const router = express.Router();
 
@@ -34,6 +35,7 @@ router.use('/save-score', saveScoreRoute);
 router.use('/loggedinusers', loggedInUsersRoute);
 router.use('/register', registerRoute);
 router.use('/update', updateRoute);
+router.use('/get-user-difficulty', getUserDifficulty);
 // Base route
 router.get('/', (req, res) => {
   res.send('API is running');

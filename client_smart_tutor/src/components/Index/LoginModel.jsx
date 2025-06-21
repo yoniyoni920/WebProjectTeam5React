@@ -31,7 +31,7 @@ const LoginModel = ({ onClose }) => {
         setStatus({ type: 'success', message: 'Login successful! Redirecting...' });
         localStorage.setItem("loggedInUser", JSON.stringify(data.user));
         setTimeout(() => {
-          window.location.href = "index.html"; // ✅ Replace with React router if needed
+          window.location.href = "index.html"; 
         }, 1000);
       } else {
         setStatus({ type: 'error', message: data.error || 'InCorrect username or password' });
