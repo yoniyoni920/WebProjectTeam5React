@@ -141,7 +141,7 @@ const Index = ({ onNavigate }) => (
             <div key={i} className="testimonial-card group rounded-3xl shadow-lg p-8 border border-[#B8CFCE] hover:shadow-xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
 
               <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[#B8CFCE]/30 to-[#7F8CAA]/30 rounded-bl-full"></div>
-              <div className="flex items-center mb-6">
+              <div className="flex items-center justify-center mb-6">
                 {Array.from({ length: t.stars }).map((_, idx) => (
                   <span key={idx} className="text-yellow-400 text-xl dark:text-yellow-400 text-xl">★</span>
                 ))}
