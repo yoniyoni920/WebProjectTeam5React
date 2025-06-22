@@ -220,7 +220,7 @@ const loadNewWord = (incrementRound = true, overrideDifficulty = difficultyLevel
           
 
         }}>
-           Current Difficulty: <span style={{ color: '#2A9D8F' }}>{difficultyLevel}</span>
+           Current Difficulty: <span style={{ color: '#347433' }}>{difficultyLevel}</span>
         </h4>
           <p className="hint" style={{ color: '#333446', background: '#EAEFEF', borderRadius: 12, padding: '16px 32px', display: 'block', fontSize: '1.5rem', fontWeight: 700, marginBottom: 24, textAlign: 'center', marginLeft: 'auto', marginRight: 'auto', boxShadow: '0 2px 8px rgba(127,140,170,0.10)' }}>
             <span style={{ color: '#7F8CAA', fontWeight: 800 }}>Question:</span> {currentWord.question}

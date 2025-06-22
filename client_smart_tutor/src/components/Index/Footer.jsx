@@ -6,7 +6,7 @@ const Footer = () => (
   <footer className="text-gray-400 text-center py-4 mt-12 flex flex-col items-center justify-center">
     <div className="border-t border-gray-300 w-full mb-4 pt-4"></div>
     <div className="flex justify-between items-center w-full px-4 max-w-4xl">
-      <p>&copy; 2025 TALKWISE. All rights reserved.</p>
+      <p className="mr-4">&copy; 2025 TALKWISE. All rights reserved.</p>
       <div className="flex space-x-4">
         <a
           href="https://www.facebook.com/"
