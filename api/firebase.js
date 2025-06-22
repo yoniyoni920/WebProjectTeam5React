@@ -21,4 +21,4 @@ if (!admin.apps.length) {
 
 const db = admin.database();
 
-module.exports = { db }; // ✅ Export as object
+module.exports = { db }; 

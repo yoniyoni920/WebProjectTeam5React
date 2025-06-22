@@ -14,8 +14,8 @@ const firebaseConfig = {
   measurementId: "G-DRKWML56DM"
 };
 
-// Initialize Firebase
+
 const app = initializeApp(firebaseConfig);
-const db = getDatabase(app); // use this in your React components
+const db = getDatabase(app); 
 
 export { app, db };

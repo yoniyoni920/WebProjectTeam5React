@@ -16,7 +16,7 @@ const getUserDifficulty = require('./routes/get-user-difficulty');
 const app = express();
 const router = express.Router();
 
-// Middleware
+
 app.use(cors({
   origin: ['http://localhost:3000', 'https://client-smart-tutor.vercel.app'],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
@@ -25,7 +25,7 @@ app.use(cors({
 
 app.use(bodyParser.json());
 
-// Routes mounted under /api
+
 router.use('/login', loginRoute);
 router.use('/logout', logoutRoute);
 router.use('/contact', contactRoute);
@@ -36,18 +36,17 @@ router.use('/loggedinusers', loggedInUsersRoute);
 router.use('/register', registerRoute);
 router.use('/update', updateRoute);
 router.use('/get-user-difficulty', getUserDifficulty);
-// Base route
+
 router.get('/', (req, res) => {
   res.send('API is running');
 });
 
 app.use('/api', router);
 
-// Export for Vercel
+
 module.exports = app;
 module.exports.handler = serverless(app);
 
-// Optional: For local development
 if (process.env.NODE_ENV !== 'production') {
   const PORT = process.env.PORT || 3000;
   app.listen(PORT, () => {
