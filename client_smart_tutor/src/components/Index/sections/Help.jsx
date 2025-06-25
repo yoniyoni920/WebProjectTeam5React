@@ -23,16 +23,16 @@ const Help = ({ activeTool, showHistory, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-black/40 dark:bg-black/70 flex items-center justify-center z-50">
-      <div className="bg-white dark:bg-gray-900 text-gray-800 dark:text-white p-6 rounded-2xl shadow-2xl w-full max-w-lg mx-4 relative">
+    <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
+      <div className="bg-gray-900 text-white p-6 rounded-2xl shadow-2xl w-full max-w-lg mx-4 relative">
         <button
           onClick={onClose}
-          className="absolute top-3 right-3 text-gray-500 dark:text-white hover:text-black dark:hover:text-gray-300 text-2xl font-bold"
+          className="absolute top-3 right-3 text-white hover:text-gray-300 text-2xl font-bold"
         >
           ✕
         </button>
 
-        <h2 className="text-2xl font-bold mb-4 text-gray-800 dark:text-white">How This Works</h2>
+        <h2 className="text-2xl font-bold mb-4">How This Works</h2>
 
         <div className="text-lg space-y-2 leading-relaxed">
           {getHelpText()}
