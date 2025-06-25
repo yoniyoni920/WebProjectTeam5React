@@ -49,23 +49,15 @@ const AIDemo = () => {
   return (
     <section className="relative article-card group border border-[#7F8CAA] rounded-3xl p-12 shadow-xl transition-all duration-300 block">
 
-      
-<button
-  onClick={() => setShowHelp(true)}
-  style={{ width: '1cm', height: '1cm', minWidth: 0, minHeight: 0, padding: 0, border: 'none', appearance: 'none' }}
-  className="absolute top-4 right-4 bg-[#7F8CAA] text-white font-bold w-10 h-10 text-xl rounded-full shadow-md hover:bg-[#6a7899] flex items-center justify-center transition-all duration-200 z-10
-  "
-  title="Help"
->
-  <span style={{ fontSize: '1rem', lineHeight: 1, userSelect: 'none' }}>?</span>
-</button>
+ 
 
 
 
 
       <div className="max-w-7xl mx-auto px-6">
         <h2 className="text-4xl font-bold mb-10 text-[#333446] text-center dark:text-white">AI Tools</h2>
-
+                        
+ 
         {/* Tool Selector */}
         <div className="tool-selector mb-10 flex justify-center gap-6">
           <button
@@ -91,7 +83,26 @@ const AIDemo = () => {
         {/* Tool Content */}
         <div className="grid grid-cols-1 gap-12">
           {activeTool === 'chatbot' && (
-            <div className="about-card w-full max-w-none text-2xl p-12 min-h-[200px] bg-gradient-to-br from-[#7F8CAA] to-white border border-[#7F8CAA] rounded-3xl shadow-xl">
+            <div className="relative about-card w-full max-w-none text-2xl p-12 min-h-[200px] bg-gradient-to-br from-[#7F8CAA] to-white border border-[#7F8CAA] rounded-3xl shadow-xl">
+
+<button
+  onClick={() => setShowHelp(true)}
+  style={{ width: '1cm', height: '1cm', minWidth: 0, minHeight: 0, padding: 0, border: 'none', appearance: 'none' }}
+  className="
+    absolute top-4 right-4
+    bg-[#7F8CAA] text-white font-bold
+    shadow-md hover:bg-[#6a7899]
+    transition-all duration-200
+    flex items-center justify-center
+    rounded-none
+    overflow-hidden
+  "
+  title="Help"
+>
+  <span style={{ fontSize: '1rem', lineHeight: 1, userSelect: 'none' }}>?</span>
+</button>
+
+
               <h3 className="text-2xl font-bold mb-6 text-[#333446]">Chatbot</h3>
               <input
                 type="text"
@@ -112,7 +123,26 @@ const AIDemo = () => {
           )}
 
           {activeTool === 'tts' && (
-            <div className="about-card w-full max-w-none text-2xl p-12 min-h-[200px] bg-gradient-to-br from-[#7F8CAA] to-white border border-[#7F8CAA] rounded-3xl shadow-xl">
+            <div className="relative about-card w-full max-w-none text-2xl p-12 min-h-[200px] bg-gradient-to-br from-[#7F8CAA] to-white border border-[#7F8CAA] rounded-3xl shadow-xl">
+
+<button
+  onClick={() => setShowHelp(true)}
+  style={{ width: '1cm', height: '1cm', minWidth: 0, minHeight: 0, padding: 0, border: 'none', appearance: 'none' }}
+  className="
+    absolute top-4 right-4
+    bg-[#7F8CAA] text-white font-bold
+    shadow-md hover:bg-[#6a7899]
+    transition-all duration-200
+    flex items-center justify-center
+    rounded-none
+    overflow-hidden
+  "
+  title="Help"
+>
+  <span style={{ fontSize: '1rem', lineHeight: 1, userSelect: 'none' }}>?</span>
+</button>
+
+
               <h3 className="text-2xl font-bold mb-6 text-[#333446]">Text-to-Speech</h3>
               <input
                 type="text"
@@ -133,7 +163,26 @@ const AIDemo = () => {
           )}
 
           {activeTool === 'wordgame' && (
-            <div className="about-card w-full max-w-none text-2xl p-12 min-h-[100px] bg-gradient-to-br from-[#7F8CAA] to-white border border-[#7F8CAA] rounded-3xl shadow-xl">
+            <div className="relative about-card w-full max-w-none text-2xl p-12 min-h-[100px] bg-gradient-to-br from-[#7F8CAA] to-white border border-[#7F8CAA] rounded-3xl shadow-xl">
+
+<button
+  onClick={() => setShowHelp(true)}
+  style={{ width: '1cm', height: '1cm', minWidth: 0, minHeight: 0, padding: 0, border: 'none', appearance: 'none' }}
+  className="
+    absolute top-4 right-4
+    bg-[#7F8CAA] text-white font-bold
+    shadow-md hover:bg-[#6a7899]
+    transition-all duration-200
+    flex items-center justify-center
+    rounded-none
+    overflow-hidden
+  "
+  title="Help"
+>
+  <span style={{ fontSize: '1rem', lineHeight: 1, userSelect: 'none' }}>?</span>
+</button>
+
+
               <h3 className="text-2xl font-bold mb-6 text-[#333446]">Word Guess Game</h3>
               <div className="flex justify-center gap-4 mb-6">
                 <button
