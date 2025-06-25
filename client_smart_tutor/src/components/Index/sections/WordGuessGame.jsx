@@ -3,8 +3,8 @@ import React, { useState, useEffect } from 'react';
 // Word list
 const wordBankEasy = [
   { question: "חתול באנגלית", answer: "cat" },
-  { question: "A vehicle with two wheels", answer: "bike" },
-  { question: "I drink a cup of _____ every morning", answer: "coffee" },
+  { question: "A vehicle with two wheels not a Motorcycle", answer: "bike" },
+  { question: "70% of the world is:", answer: "water" },
   { question: "Opposite of 'cold'", answer: "hot" },
   { question: "A yellow fruit monkeys like", answer: "banana" },
   { question: "The color of the sky", answer: "blue" },

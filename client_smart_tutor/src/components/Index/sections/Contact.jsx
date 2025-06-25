@@ -37,7 +37,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="contact-section py-14 rounded-3xl shadow-xl px-8 max-w-xl mx-auto border my-12">
+    <section id="contact" className="article-card group border border-[#7F8CAA] rounded-3xl p-12 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 block shadow-xl">
 
       <h2 className="text-3xl font-bold mb-8 text-[#333446] text-center">Contact Us</h2>
       <form onSubmit={handleSubmit} className="space-y-6">

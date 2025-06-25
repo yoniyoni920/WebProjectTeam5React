@@ -47,20 +47,13 @@ const AIDemo = () => {
   };
 
   return (
-    <section className=" bg-gradient-to-br from-[#EAEFEF] via-[#B8CFCE]/15 to-[#B8CFCE]/50   dark:from-gray-800 dark:via-gray-700/30 dark:to-gray-700/50 py-16 relative">
+    <section className="relative article-card group border border-[#7F8CAA] rounded-3xl p-12 shadow-xl transition-all duration-300 block">
 
       
 <button
   onClick={() => setShowHelp(true)}
   style={{ width: '1cm', height: '1cm', minWidth: 0, minHeight: 0, padding: 0, border: 'none', appearance: 'none' }}
-  className="
-    absolute top-4 right-4
-    bg-[#7F8CAA] text-white font-bold
-    shadow-md hover:bg-[#6a7899]
-    transition-all duration-200
-    flex items-center justify-center
-    rounded-none
-    overflow-hidden
+  className="absolute top-4 right-4 bg-[#7F8CAA] text-white font-bold w-10 h-10 text-xl rounded-full shadow-md hover:bg-[#6a7899] flex items-center justify-center transition-all duration-200 z-10
   "
   title="Help"
 >

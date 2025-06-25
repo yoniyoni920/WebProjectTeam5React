@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Services = () => (
-  <section id="services" className="services-section py-12 bg-[#eaf0f0] border border-gray-400 px-6 text-center rounded-3xl max-w-3xl mx-auto my-12 shadow-lg">
+  <section id="services" className=" article-card group border border-[#7F8CAA] rounded-3xl p-12 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 block shadow-xl">
     <h2 className="text-3xl font-bold mb-6" style={{ color: '#333446' }}>Our Services</h2>
     <p className="mb-4 text-gray-700 text-lg">
       <strong>TalkWise</strong> offers smart, user-friendly tools to help you learn English effectively and enjoyably:

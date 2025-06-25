@@ -14,7 +14,8 @@ const Help = ({ activeTool, showHistory, onClose }) => {
           Guess the correct English word based on hints. Improve your vocabulary through play!<br />
           • 1–2 correct answers will reduce difficulty,<br />
           • 3 correct answers will keep the same difficulty,<br />
-          • 4–5 correct answers will increase to harder questions!
+          • 4–5 correct answers will increase to harder questions!<br />
+          Unregistered users can only play on easy difficulty
         </>
       );
     }
