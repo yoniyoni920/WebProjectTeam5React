@@ -27,7 +27,16 @@ const Help = ({ activeTool, showHistory, onClose }) => {
       <div className="bg-gray-900 text-white p-6 rounded-2xl shadow-2xl w-full max-w-lg mx-4 relative">
         <button
           onClick={onClose}
-          className="absolute top-3 right-3 text-white hover:text-gray-300 text-2xl font-bold"
+          style={{ width: '1cm', height: '1cm', minWidth: 0, minHeight: 0, padding: 0, border: 'none', appearance: 'none' }}
+  className="
+    absolute top-4 right-4
+    bg-[#7F8CAA] text-white font-bold
+    shadow-md hover:bg-[#6a7899]
+    transition-all duration-200
+    flex items-center justify-center
+    rounded-none
+    overflow-hidden
+  "
         >
           ✕
         </button>
